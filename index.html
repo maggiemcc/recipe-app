@@ -10,7 +10,6 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Recipe App</title>
     <link href="index.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body>
@@ -22,9 +21,60 @@
             <input type="text" name="searchBar" placeholder="Search for food (EX: chicken, burger)"><button
                 class="getRecipe">Search</button>
             <div class="results-dropdown" style="display: inline;">
-                <i class="fas fa-caret-down" style="display: inline"></i>
+                <i class="fas fa-caret-down" style="display: inline; font-size: 30px;"></i>
             </div>
-            <div class="results-list"></div>
+            <div class="results-list">
+
+                <div class="card">
+                    <img src="https://www.simplyrecipes.com/thmb/Gx4w4_rJzZVjJYrlERoDV6543Q8=/648x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__03__HT-Make-Roast-Chicken-LEAD-2v2-de3e8a8e428e4e3a893f21818232daa6.jpg"
+                        class="card-img-top" alt="temporary">
+                    <div class="card-body">
+                        <h5 class="card-title">Roast Chicken</h5>
+                    </div>
+                    <div>
+                        <div>
+                            <h6 class="instructions-dropdown">Cooking Instructions</h6>
+                            <i class="fas fa-caret-down" style="display: inline;"></i>
+                        </div>
+
+                        <ul class="list-group list-group-flush" id="instructions">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div>
+                            <h6 class="ingredients-dropdown" style="display: inline;">Ingredients</h6>
+                            <i class="fas fa-caret-down" style="display: inline;"></i>
+                        </div>
+
+                        <ul class="list-group list-group-flush" id="ingredients">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div>
+                            <h6 class="ingredients-dropdown">Youtube Video</h6>
+                            <i class="fas fa-caret-down" style="display: inline;"></i>
+                        </div>
+
+                        <ul class="list-group list-group-flush" id="youtube">
+                            <li class="list-group-item">An item</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body">
+                        <button>Want to Try</button>
+                        <button>Have Made</button>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <section class="categories-section">

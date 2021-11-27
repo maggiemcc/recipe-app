@@ -1,0 +1,28 @@
+header {
+  background-color: purple;
+  color: white;
+  padding: 20px 2%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.search-section {
+  text-align: center;
+}
+.search-section input {
+  width: 100%;
+  max-width: 350px;
+}
+
+.search-section .getRecipe {
+  background-color: purple;
+  color: white;
+  padding: 0px 10px;
+  margin: 0px 5px;
+}
+
+.card {
+    width: 100%;
+    max-width: 350px;
+    min-width: 250px;
+}
