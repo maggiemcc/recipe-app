@@ -21,7 +21,8 @@
             <input type="text" name="searchBar" placeholder="Search for food (EX: chicken, burger)"><button
                 class="getRecipe">Search</button>
             <div class="results-dropdown" style="display: inline;">
-                <i class="fas fa-caret-down" style="display: inline; font-size: 30px; height: 30px; margin-left: 5px; cursor: pointer;"></i>
+                <i class="fas fa-caret-down"
+                    style="display: inline; font-size: 30px; height: 30px; margin-left: 5px; cursor: pointer;"></i>
             </div>
             <div class="results-list">
 
@@ -52,19 +53,19 @@
                             </div>
 
                             <ul class="list-group list-group-flush" id="ingredients">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
+                                <li class="list-group-item">1.5kg chicken</li>
+                                <li class="list-group-item">1 tsp dried oregano</li>
+                                <li class="list-group-item">2 cloves garlic</li>
                             </ul>
                         </div>
 
-                        <div>
-                            <a href="#" class="card-link">Watch Youtube Tutorial</a>
+                        <div class="youtube-video">
+                            <a href="#" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
                         </div>
 
                         <div class="card-body">
-                            <button>Want to Try</button>
-                            <button>Have Made</button>
+                            <button id="wantBtn">Want to Try</button>
+                            <button id="madeBtn">Have Made</button>
                         </div>
                     </div>
                 </div>
@@ -73,30 +74,41 @@
             </div>
         </section>
 
+        <hr>
+
+
         <section class="categories-section">
+            <h2>Saved Recipes</h2>
             <div class="want-to-try-dropdown">
                 <h3>Want To Try</h3>
                 <i class="fas fa-caret-down" style="display: inline"></i>
             </div>
-            <div class="want-list"></div>
+            <div class="want-list">
+                <p>demo text</p>
+            </div>
 
 
             <div class="made-dropdown">
                 <h3>Recipes Made</h3>
                 <i class="fas fa-caret-down" style="display: inline"></i>
             </div>
-            <div class="made-list"></div>
+            <div class="made-list">
+                <p>demo text</p>
+            </div>
 
             <div class="favorites-dropdown">
                 <h3>Favorites</h3>
                 <i class="fas fa-caret-down" style="display: inline"></i>
             </div>
-            <div class="favorites-list"></div>
+            <div class="favorites-list">
+                <p>demo text</p>
+
+            </div>
 
         </section>
     </main>
     <footer>
-
+        <h6>Maggie McCausland © 2021</h6>
     </footer>
     <script type="text/javascript" src="index.js"></script>
 </body>

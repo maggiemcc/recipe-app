@@ -4,14 +4,21 @@ header {
   padding: 20px 2%;
   text-align: center;
   margin-bottom: 10px;
+  max-width: 1500px;
+  margin: auto;
+  font-weight: bold;
 }
 
 main {
-    padding: 2%;
+  padding: 2%;
+  max-width: 1500px;
+  margin: auto;
 }
 
+/* SEARCH SECTION */
 .search-section {
   text-align: center;
+  min-height: 100px;
 }
 
 .search-section input {
@@ -30,30 +37,104 @@ main {
   margin: 0px 5px;
 }
 
+/* SEARCH RESULTS */
 .results-list {
-    margin-top: 15px;
-    margin-bottom: 30px;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  max-width: 900px;
 }
 
 .card {
-    width: 100%;
-    max-width: 400px;
-    min-width: 250px;
+  width: 100%;
+  max-width: 350px;
+  min-width: 250px;
 }
-
-.instructions-dropdown i, .instructions-dropdown h6 {
-    display: inline;
-}
-
-.ingredients-dropdown i, .ingredients-dropdown h6 {
-    display: inline;
-}
-
-.instructions-dropdown, .ingredients-dropdown {
-    cursor: pointer;
-    padding: 8px 0;
-}
-#instructions, #ingredients {
-    display: none;
+.instructions-dropdown, .ingredients-dropdown, .youtube-video {
     text-align: left;
+}
+
+.youtube-video {
+    margin: 3% 0;
+}
+
+.instructions-dropdown i,
+.instructions-dropdown h6,
+.ingredients-dropdown i,
+.ingredients-dropdown h6
+{
+  display: inline;
+}
+
+.instructions-dropdown,
+.ingredients-dropdown {
+  cursor: pointer;
+  padding: 8px 0;
+}
+#instructions,
+#ingredients {
+  display: none;
+  text-align: left;
+}
+
+#wantBtn, #madeBtn {
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 3%;
+}
+
+
+hr {
+    border: 2px solid purple;
+    opacity: 1;
+    color: purple;
+}
+
+/* CATEGORIES SECTION */
+.categories-section h2 {
+    text-align: center;
+    color: purple;
+    margin: 30px 0;
+    font-weight: bold;
+}
+
+.want-to-try-dropdown,
+.made-dropdown,
+.favorites-dropdown {
+  background-color: purple;
+  color: white;
+  padding: 20px 3%;
+  margin: auto;
+  margin-bottom: 10px;
+  max-width: 900px;
+}
+
+.want-to-try-dropdown i,
+.want-to-try-dropdown h3,
+.made-dropdown i,
+.made-dropdown h3,
+.favorites-dropdown i,
+.favorites-dropdown h3 {
+  display: inline;
+  cursor: pointer;
+}
+
+.want-list, .made-list, .favorites-list {
+    display: none;
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 850px;
+}
+
+footer {
+  max-width: 1500px;
+  margin: auto;
+  margin-bottom: 0;
+  background-color: purple;
+  color: white;
+  text-align: center;
+  padding: 15px 2%;
 }
