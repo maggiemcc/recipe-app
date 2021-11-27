@@ -6,23 +6,54 @@ header {
   margin-bottom: 10px;
 }
 
+main {
+    padding: 2%;
+}
+
 .search-section {
   text-align: center;
 }
+
 .search-section input {
   width: 100%;
   max-width: 350px;
+  height: 30px;
 }
 
 .search-section .getRecipe {
   background-color: purple;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
   color: white;
   padding: 0px 10px;
   margin: 0px 5px;
 }
 
+.results-list {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
 .card {
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
     min-width: 250px;
+}
+
+.instructions-dropdown i, .instructions-dropdown h6 {
+    display: inline;
+}
+
+.ingredients-dropdown i, .ingredients-dropdown h6 {
+    display: inline;
+}
+
+.instructions-dropdown, .ingredients-dropdown {
+    cursor: pointer;
+    padding: 8px 0;
+}
+#instructions, #ingredients {
+    display: none;
+    text-align: left;
 }
