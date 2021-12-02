@@ -1,4 +1,5 @@
 // Food Card Dropdowns
+(function (window) {
 document.querySelector(".results-dropdown").addEventListener("click", toggleSearchResults)
 function toggleSearchResults() {
     let content = document.querySelector(".results-list");
@@ -59,3 +60,5 @@ function toggleFavorites() {
         content.style.display = "none";
     }
 }
+
+})(window);
