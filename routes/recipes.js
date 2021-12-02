@@ -21,15 +21,30 @@ router.get("/", async (req, res) => {
 });
 
 // Get - Favorites Recipes
-router.get("/", async (req, res) => {
+router.get("/favorites/:favorite", async (req, res) => {
+    await Recipe.find({})
+    .then((result) => {
+        res.json(result);
+    })
+    .catch((error) => console.log(error));
 });
 
 // Get - Want to Try Recipes
-router.get("/", async (req, res) => {
+router.get("/try/:try", async (req, res) => {
+    await Recipe.find({})
+    .then((result) => {
+        res.json(result);
+    })
+    .catch((error) => console.log(error));
 });
 
 // Get = Have Made Recipes
-router.get("/", async (req, res) => {
+router.get("/made/:made", async (req, res) => {
+    await Recipe.find({})
+    .then((result) => {
+        res.json(result);
+    })
+    .catch((error) => console.log(error));
 });
 
 module.exports = router;
