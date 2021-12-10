@@ -42,13 +42,17 @@ main {
   margin: auto;
   margin-top: 15px;
   margin-bottom: 30px;
-  max-width: 900px;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
-  width: 250px;
+  width: 400px;
   height: auto;
+  margin: 10px;
 }
+
 
 
 .card-buttons button {
@@ -86,6 +90,7 @@ main {
 #instructions,
 #ingredients {
   display: none;
+  display: inline-block;
   text-align: left;
 }
 
