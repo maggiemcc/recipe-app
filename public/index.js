@@ -1,7 +1,8 @@
 (function (window) {
-
     // Food Card Dropdowns
-    document.querySelector(".results-dropdown").addEventListener("click", toggleSearchResults)
+    document
+        .querySelector(".results-dropdown")
+        .addEventListener("click", toggleSearchResults);
     function toggleSearchResults() {
         let content = document.querySelector(".results-list");
         if (content.style.display === "none") {
@@ -32,7 +33,9 @@
     // }
 
     // Category Dropdowns
-    document.querySelector(".want-to-try-dropdown").addEventListener("click", toggleWant)
+    document
+        .querySelector(".want-to-try-dropdown")
+        .addEventListener("click", toggleWant);
     function toggleWant() {
         let content = document.querySelector(".want-list");
         if (content.style.display === "none") {
@@ -42,7 +45,9 @@
         }
     }
 
-    document.querySelector(".made-dropdown").addEventListener("click", toggleMade)
+    document
+        .querySelector(".made-dropdown")
+        .addEventListener("click", toggleMade);
     function toggleMade() {
         let content = document.querySelector(".made-list");
         if (content.style.display === "none") {
@@ -52,7 +57,9 @@
         }
     }
 
-    document.querySelector(".favorites-dropdown").addEventListener("click", toggleFavorites)
+    document
+        .querySelector(".favorites-dropdown")
+        .addEventListener("click", toggleFavorites);
     function toggleFavorites() {
         let content = document.querySelector(".favorites-list");
         if (content.style.display === "none") {
@@ -61,7 +68,6 @@
             content.style.display = "none";
         }
     }
-
 
     // SEARCH SECTION
     const searchInput = document.querySelector("input");
@@ -72,22 +78,24 @@
     getRecipesBtn.addEventListener("click", () => {
         resultsContent.innerHTML = " ";
         fetchRecipeApi();
-    })
+    });
 
     searchInput.addEventListener("keydown", (e) => {
         if (e.code === "Enter") {
             resultsContent.innerHTML = " ";
             fetchRecipeApi();
         }
-    })
+    });
 
     function fetchRecipeApi() {
         let searchInputValue = searchInput.value;
 
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputValue}`)
+        fetch(
+            `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputValue}`
+        )
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.meals)
+                console.log(data.meals);
                 recipeArray = data.meals.map((recipe) => {
                     return {
                         meal: recipe.strMeal,
@@ -139,12 +147,12 @@
                             twenty: recipe.strMeasure20,
                         },
                         tutorial: recipe.strYoutube,
-                        try: false,
+                        toTry: false,
                         made: false,
                         favorite: false,
-                    }
-                })
-                displayRecipes()
+                    };
+                });
+                displayRecipes();
 
                 console.log("array ->", recipeArray);
             })
@@ -152,7 +160,6 @@
                 console.error(error);
             });
     }
-
 
     // displaying content in results
     function displayRecipes() {
@@ -216,24 +223,94 @@
       `;
 
             resultsContent.insertAdjacentHTML("beforeend", recipeCard);
-
-        })
+        });
     }
 
+    const tryResults = document.querySelector(".want-list");
 
-    // adding click event for want to try
+    // adding click event for want to try or made
     document.addEventListener("click", (e) => {
         if (e.target.id === "wantBtn") addRecipeToTry(e);
         else if (e.target.id === "madeBtn") addRecipeToMade(e);
-    })
+    });
 
     // Want To Try list
     function addRecipeToTry(e) {
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
-        console.log("added to try:", recipeID)
-        let recipe = recipeArray.find((recipe) => { return recipe.id === Number(recipeID) })
-        if (!recipe.try) {return recipe.try = true;}
-        else { return recipe.try = false };
+        console.log("added to try:", recipeID);
+        let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+        if (!recipe.toTry) recipe.toTry = true;
+        else recipe.toTry = false;
+
+        displayRecipesToTry();
     }
 
+    function displayRecipesToTry() {
+        // tryResults.innerHTML = "";
+
+        recipeArray.find((recipe) => {
+            if (recipe.toTry) {
+                let recipeCard = `
+                <div class="card" id="${recipe.id}">
+                <img src="${recipe.image}" class="card-img-top" alt="temporary">
+                <div class="card-body">
+                    <h5 class="card-title">${recipe.meal}</h5>
+                    <div>
+                        <div class="instructions-dropdown">
+                            <h6>Cooking Instructions</h6>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+    
+                        <div id="instructions">
+                            <p>${recipe.instructions}</p>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <div class="ingredients-dropdown">
+                            <h6>Ingredients</h6>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+    
+                        <ul class="list-group list-group-flush" id="ingredients">
+                            <li class="list-group-item">${recipe.ingredients.one}</li>
+                            <li class="list-group-item">${recipe.ingredients.two}</li>
+                            <li class="list-group-item">${recipe.ingredients.three}</li>
+                            <li class="list-group-item">${recipe.ingredients.four}</li>
+                            <li class="list-group-item">${recipe.ingredients.five}</li>
+                            <li class="list-group-item">${recipe.ingredients.six}</li>
+                            <li class="list-group-item">${recipe.ingredients.seven}</li>
+                            <li class="list-group-item">${recipe.ingredients.eight}</li>
+                            <li class="list-group-item">${recipe.ingredients.nine}</li>
+                            <li class="list-group-item">${recipe.ingredients.ten}</li>
+                            <li class="list-group-item">${recipe.ingredients.eleven}</li>
+                            <li class="list-group-item">${recipe.ingredients.twelve}</li>
+                            <li class="list-group-item">${recipe.ingredients.thirteen}</li>
+                            <li class="list-group-item">${recipe.ingredients.fourteen}</li>
+                            <li class="list-group-item">${recipe.ingredients.fifteen}</li>
+                            <li class="list-group-item">${recipe.ingredients.sixteen}</li>
+                            <li class="list-group-item">${recipe.ingredients.seventeen}</li>
+                            <li class="list-group-item">${recipe.ingredients.eighteen}</li>
+                            <li class="list-group-item">${recipe.ingredients.nineteen}</li>
+                            <li class="list-group-item">${recipe.ingredients.twenty}</li>
+                        </ul>
+                    </div>
+    
+                    <div class="youtube-video">
+                        <a href="${recipe}" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
+                    </div>
+    
+                    <div class="card-buttons">
+                        <button id="madeBtn">Have Made</button>
+                        <button id="favBtn">Favorite</button>
+                        <button id="deleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            `;
+
+                tryResults.insertAdjacentHTML("beforeend", recipeCard);
+            }
+        });
+    }
 })(window);

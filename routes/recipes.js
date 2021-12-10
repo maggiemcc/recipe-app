@@ -57,7 +57,7 @@ router.get("/made/:made", async (req, res) => {
 });
 
 // Post - Create/Add Recipe
-router.post("/", async (req, res) => {
+router.post("/add", async (req, res) => {
     const newRecipe = await new Recipe({});
     newRecipe
     .save()

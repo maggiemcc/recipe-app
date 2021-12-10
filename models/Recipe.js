@@ -50,7 +50,7 @@ const Recipe = new Schema({
         twenty: String,
     },
     tutorial: String,
-    try: {
+    toTry: {
         type: Boolean,
         default: false,
     },
