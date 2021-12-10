@@ -46,9 +46,21 @@ main {
 }
 
 .card {
+  width: 250px;
+  height: auto;
+}
+
+
+.card-buttons button {
+  display: block;
   width: 100%;
-  max-width: 350px;
-  min-width: 250px;
+  margin: 2% 0;
+  /* max-width: 40px; */
+}
+
+.card img {
+  width: auto;
+  height: auto;
 }
 .instructions-dropdown, .ingredients-dropdown, .youtube-video {
     text-align: left;

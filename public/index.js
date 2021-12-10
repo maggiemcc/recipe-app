@@ -1,5 +1,6 @@
-// Food Card Dropdowns
 (function (window) {
+
+// Food Card Dropdowns
 document.querySelector(".results-dropdown").addEventListener("click", toggleSearchResults)
 function toggleSearchResults() {
     let content = document.querySelector(".results-list");
@@ -60,5 +61,24 @@ function toggleFavorites() {
         content.style.display = "none";
     }
 }
+
+
+// SEARCH SECTION
+const searchInput = document.querySelector("input");
+const resultsContent = document.querySelector(".results-list");
+const getRecipesBtn = document.querySelector(".getRecipes");
+
+getRecipesBtn.addEventListener("click", () => {
+    resultsContent.innerHTML = " ";
+    fetchRecipeApi();
+})
+
+searchInput.addEventListener("keydown", (e) => {
+    if (e.code === "Enter") {
+        resultsContent.innerHTML = " ";
+        fetchBooksApi();
+    }
+})
+
 
 })(window);
