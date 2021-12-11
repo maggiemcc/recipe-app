@@ -237,6 +237,9 @@
         if (e.target.id === "wantBtn") addRecipeToTry(e);
         else if (e.target.id === "madeBtn") addRecipeToMade(e);
         else if (e.target.id === "favBtn") addRecipeToFav(e);
+        else if (e.target.id === "deleteTryBtn") deleteTryRecipe(e);
+        else if (e.target.id === "deleteMadeBtn") deleteMadeRecipe(e);
+        else if (e.target.id === "removeBtn") removeFavoriteRecipe(e);
     });
 
     // Want To Try list
@@ -308,8 +311,7 @@
     
                     <div class="card-buttons">
                         <button id="madeBtn">Have Made</button>
-                        <button id="favBtn">Favorite</button>
-                        <button id="deleteBtn">Delete</button>
+                        <button id="deleteTryBtn">Delete</button>
                     </div>
                 </div>
             </div>
@@ -325,7 +327,10 @@
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
         console.log("added to Made:", recipeID);
         let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
-        if (!recipe.made) recipe.made = true;
+        if (!recipe.made) {
+            recipe.made = true;
+            recipe.toTry = false;
+        }
         else recipe.made = false;
 
         displayRecipesMade();
@@ -388,7 +393,7 @@
     
                     <div class="card-buttons">
                         <button id="favBtn">Favorite</button>
-                        <button id="deleteBtn">Delete</button>
+                        <button id="deleteMadeBtn">Delete</button>
                     </div>
                 </div>
             </div>
@@ -477,5 +482,44 @@
             }
         });
     }
+
+
+        // Delete Recipes
+        function deleteTryRecipe(e) {
+            let recipeID = e.target.parentElement.parentElement.parentElement.id;
+            let recipeRemove = e.target.parentElement.parentElement.parentElement;
+            recipeRemove.remove();
+
+            let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+            if (!recipe.toTry) recipe.toTry = false;
+            else recipe.toTry = false;
+    
+            displayRecipesToTry();
+        }
+
+        function deleteMadeRecipe(e) {
+            let recipeID = e.target.parentElement.parentElement.parentElement.id;
+            let recipeRemove = e.target.parentElement.parentElement.parentElement;
+            recipeRemove.remove();
+
+            let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+            if (!recipe.made) recipe.made = false;
+            else recipe.made = false;
+    
+            displayRecipesMade();
+        }
+
+
+        function removeFavoriteRecipe(e) {
+            let recipeID = e.target.parentElement.parentElement.parentElement.id;
+            let recipeRemove = e.target.parentElement.parentElement.parentElement;
+            recipeRemove.remove();
+
+            let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+            if (!recipe.favorite) recipe.favorite = false;
+            else recipe.favorite = false;
+    
+            // displayRecipesFav();
+        }
 
 })(window);

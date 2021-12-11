@@ -100,7 +100,7 @@ main {
   text-align: left;
 }
 
-#wantBtn, #madeBtn, #favBtn, #deleteBtn, #removeBtn {
+#wantBtn, #madeBtn, #favBtn, #deleteTryBtn, #deleteMadeBtn, #removeBtn {
     background-color: purple;
     color: white;
     border: none;
@@ -109,7 +109,7 @@ main {
     padding: 3%;
 }
 
-#deleteBtn, #removeBtn {
+#deleteTryBtn, #deleteMadeBtn, #removeBtn {
   background-color: darkred;
 }
 
