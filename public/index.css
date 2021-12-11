@@ -48,8 +48,9 @@ main {
 }
 
 .card {
-  width: 400px;
-  height: auto;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
   margin: 10px;
 }
 
@@ -72,6 +73,11 @@ main {
 
 .youtube-video {
     margin: 3% 0;
+}
+#ingredients p {
+  display: inline-block;
+  margin: 0;
+  line-height: normal;
 }
 
 .instructions-dropdown i,

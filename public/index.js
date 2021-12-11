@@ -186,32 +186,32 @@
                         <i class="fas fa-caret-down"></i>
                     </div>
 
-                    <ul class="list-group list-group-flush" id="ingredients">
-                        <li class="list-group-item">${recipe.ingredients.one}</li>
-                        <li class="list-group-item">${recipe.ingredients.two}</li>
-                        <li class="list-group-item">${recipe.ingredients.three}</li>
-                        <li class="list-group-item">${recipe.ingredients.four}</li>
-                        <li class="list-group-item">${recipe.ingredients.five}</li>
-                        <li class="list-group-item">${recipe.ingredients.six}</li>
-                        <li class="list-group-item">${recipe.ingredients.seven}</li>
-                        <li class="list-group-item">${recipe.ingredients.eight}</li>
-                        <li class="list-group-item">${recipe.ingredients.nine}</li>
-                        <li class="list-group-item">${recipe.ingredients.ten}</li>
-                        <li class="list-group-item">${recipe.ingredients.eleven}</li>
-                        <li class="list-group-item">${recipe.ingredients.twelve}</li>
-                        <li class="list-group-item">${recipe.ingredients.thirteen}</li>
-                        <li class="list-group-item">${recipe.ingredients.fourteen}</li>
-                        <li class="list-group-item">${recipe.ingredients.fifteen}</li>
-                        <li class="list-group-item">${recipe.ingredients.sixteen}</li>
-                        <li class="list-group-item">${recipe.ingredients.seventeen}</li>
-                        <li class="list-group-item">${recipe.ingredients.eighteen}</li>
-                        <li class="list-group-item">${recipe.ingredients.nineteen}</li>
-                        <li class="list-group-item">${recipe.ingredients.twenty}</li>
-                    </ul>
+                    <div id="ingredients">
+                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
+                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
+                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
+                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
+                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
+                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
+                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
+                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
+                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
+                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
+                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
+                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
+                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
+                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
+                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
+                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
+                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
+                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
+                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
+                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
+                    </div>
                 </div>
 
                 <div class="youtube-video">
-                    <a href="${recipe}" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
+                    <a href="${recipe.tutorial}" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
                 </div>
 
                 <div class="card-buttons">
@@ -297,7 +297,7 @@
                     </div>
     
                     <div class="youtube-video">
-                        <a href="${recipe}" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
+                        <a href="${recipe.tutorial}" target="_blank" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
                     </div>
     
                     <div class="card-buttons">
