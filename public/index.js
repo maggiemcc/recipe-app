@@ -95,7 +95,7 @@
         )
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.meals);
+                // console.log(data.meals);
                 recipeArray = data.meals.map((recipe) => {
                     return {
                         meal: recipe.strMeal,
@@ -158,6 +158,8 @@
             })
             .catch((error) => {
                 console.error(error);
+                resultsContent.innerHTML = "Sorry, could not find a recipe. Try another.";
+
             });
     }
 
@@ -227,11 +229,14 @@
     }
 
     const tryResults = document.querySelector(".want-list");
+    const madeResults = document.querySelector(".made-list");
+    const favoriteResults = document.querySelector(".favorites-list");
 
     // adding click event for want to try or made
     document.addEventListener("click", (e) => {
         if (e.target.id === "wantBtn") addRecipeToTry(e);
         else if (e.target.id === "madeBtn") addRecipeToMade(e);
+        else if (e.target.id === "favBtn") addRecipeToFav(e);
     });
 
     // Want To Try list
@@ -244,6 +249,7 @@
 
         displayRecipesToTry();
     }
+
 
     function displayRecipesToTry() {
         // tryResults.innerHTML = "";
@@ -272,29 +278,29 @@
                             <i class="fas fa-caret-down"></i>
                         </div>
     
-                        <ul class="list-group list-group-flush" id="ingredients">
-                            <li class="list-group-item">${recipe.ingredients.one}</li>
-                            <li class="list-group-item">${recipe.ingredients.two}</li>
-                            <li class="list-group-item">${recipe.ingredients.three}</li>
-                            <li class="list-group-item">${recipe.ingredients.four}</li>
-                            <li class="list-group-item">${recipe.ingredients.five}</li>
-                            <li class="list-group-item">${recipe.ingredients.six}</li>
-                            <li class="list-group-item">${recipe.ingredients.seven}</li>
-                            <li class="list-group-item">${recipe.ingredients.eight}</li>
-                            <li class="list-group-item">${recipe.ingredients.nine}</li>
-                            <li class="list-group-item">${recipe.ingredients.ten}</li>
-                            <li class="list-group-item">${recipe.ingredients.eleven}</li>
-                            <li class="list-group-item">${recipe.ingredients.twelve}</li>
-                            <li class="list-group-item">${recipe.ingredients.thirteen}</li>
-                            <li class="list-group-item">${recipe.ingredients.fourteen}</li>
-                            <li class="list-group-item">${recipe.ingredients.fifteen}</li>
-                            <li class="list-group-item">${recipe.ingredients.sixteen}</li>
-                            <li class="list-group-item">${recipe.ingredients.seventeen}</li>
-                            <li class="list-group-item">${recipe.ingredients.eighteen}</li>
-                            <li class="list-group-item">${recipe.ingredients.nineteen}</li>
-                            <li class="list-group-item">${recipe.ingredients.twenty}</li>
-                        </ul>
+                        <div id="ingredients">
+                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
+                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
+                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
+                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
+                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
+                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
+                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
+                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
+                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
+                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
+                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
+                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
+                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
+                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
+                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
+                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
+                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
+                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
+                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
+                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
                     </div>
+                </div>
     
                     <div class="youtube-video">
                         <a href="${recipe.tutorial}" target="_blank" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
@@ -313,4 +319,163 @@
             }
         });
     }
+
+    // Have Made Recipes
+    function addRecipeToMade(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        console.log("added to Made:", recipeID);
+        let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+        if (!recipe.made) recipe.made = true;
+        else recipe.made = false;
+
+        displayRecipesMade();
+    }
+
+    function displayRecipesMade() {
+        // tryResults.innerHTML = "";
+
+        recipeArray.find((recipe) => {
+            if (recipe.made) {
+                let recipeCard = `
+                <div class="card" id="${recipe.id}">
+                <img src="${recipe.image}" class="card-img-top" alt="temporary">
+                <div class="card-body">
+                    <h5 class="card-title">${recipe.meal}</h5>
+                    <div>
+                        <div class="instructions-dropdown">
+                            <h6>Cooking Instructions</h6>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+    
+                        <div id="instructions">
+                            <p>${recipe.instructions}</p>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <div class="ingredients-dropdown">
+                            <h6>Ingredients</h6>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+    
+                        <div id="ingredients">
+                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
+                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
+                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
+                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
+                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
+                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
+                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
+                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
+                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
+                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
+                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
+                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
+                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
+                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
+                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
+                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
+                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
+                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
+                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
+                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
+                    </div>
+                </div>
+    
+                    <div class="youtube-video">
+                        <a href="${recipe.tutorial}" target="_blank" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
+                    </div>
+    
+                    <div class="card-buttons">
+                        <button id="favBtn">Favorite</button>
+                        <button id="deleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            `;
+
+                madeResults.insertAdjacentHTML("beforeend", recipeCard);
+            }
+        });
+    }
+
+
+    // Favorite Recipes
+    function addRecipeToFav(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        console.log("added to favorites:", recipeID);
+        let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+        if (!recipe.favorite) recipe.favorite = true;
+        else recipe.favorite = false;
+
+        displayRecipesFav();
+    }
+
+    function displayRecipesFav() {
+        // tryResults.innerHTML = "";
+
+        recipeArray.find((recipe) => {
+            if (recipe.made) {
+                let recipeCard = `
+                <div class="card" id="${recipe.id}">
+                <img src="${recipe.image}" class="card-img-top" alt="temporary">
+                <div class="card-body">
+                    <h5 class="card-title">${recipe.meal}</h5>
+                    <div>
+                        <div class="instructions-dropdown">
+                            <h6>Cooking Instructions</h6>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+    
+                        <div id="instructions">
+                            <p>${recipe.instructions}</p>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <div class="ingredients-dropdown">
+                            <h6>Ingredients</h6>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+    
+                        <div id="ingredients">
+                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
+                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
+                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
+                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
+                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
+                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
+                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
+                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
+                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
+                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
+                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
+                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
+                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
+                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
+                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
+                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
+                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
+                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
+                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
+                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
+                    </div>
+                </div>
+    
+                    <div class="youtube-video">
+                        <a href="${recipe.tutorial}" target="_blank" class="card-link" style="text-decoration: none;">Watch Youtube Tutorial</a>
+                    </div>
+    
+                    <div class="card-buttons">
+                        <button id="removeBtn">Remove Favorite</button>
+                    </div>
+                </div>
+            </div>
+            `;
+
+                favoriteResults.insertAdjacentHTML("beforeend", recipeCard);
+            }
+        });
+    }
+
 })(window);
