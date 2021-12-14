@@ -30,8 +30,11 @@ router.get("/:recipeId", async (req, res) => {
 
 
 // Get - Favorites Recipes
-router.get("/favorites/:favorite", async (req, res) => {
-    await Recipe.find({})
+router.get("/favorite/:favorite", async (req, res) => {
+    await Recipe.find({
+        favorite: req.params.favorite === 'true'
+
+    })
         .then((result) => {
             res.json(result);
         })
@@ -39,8 +42,10 @@ router.get("/favorites/:favorite", async (req, res) => {
 });
 
 // Get - Want to Try Recipes
-router.get("/try/:try", async (req, res) => {
-    await Recipe.find({})
+router.get("/toTry/:toTry", async (req, res) => {
+    await Recipe.find({
+        toTry: req.params.toTry === 'true'
+    })
         .then((result) => {
             res.json(result);
         })
@@ -49,7 +54,9 @@ router.get("/try/:try", async (req, res) => {
 
 // Get - Have Made Recipes
 router.get("/made/:made", async (req, res) => {
-    await Recipe.find({})
+    await Recipe.find({
+        made: req.params.made === 'true'
+    })
         .then((result) => {
             res.json(result);
         })
