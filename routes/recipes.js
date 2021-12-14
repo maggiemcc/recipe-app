@@ -126,12 +126,11 @@ router.post("/add", async (req, res) => {
 });
 
 // Put - Edit Recipe Based On ID
-router.put("/:identity", async (req, res) => {
+router.put("/update/:identity", async (req, res) => {
     await Recipe.findOneAndUpdate({
-
-    })
+        identity: req.params.identity}, req.body)
         .then(() => {
-            Recipe.findOne({})
+            Recipe.findOne({identity: req.params.identity})
                 .then((result) => res.send(result))
         })
         .catch((error) => console.log(error));

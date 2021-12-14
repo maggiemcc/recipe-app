@@ -1,145 +1,145 @@
 (function (window) {
-  // Food Card Dropdowns
-  document
-    .querySelector(".results-dropdown")
-    .addEventListener("click", toggleSearchResults);
-  function toggleSearchResults() {
-    let content = document.querySelector(".results-list");
-    if (content.style.display === "none") {
-      content.style.display = "flex";
-    } else {
-      content.style.display = "none";
+    // Food Card Dropdowns
+    document
+        .querySelector(".results-dropdown")
+        .addEventListener("click", toggleSearchResults);
+    function toggleSearchResults() {
+        let content = document.querySelector(".results-list");
+        if (content.style.display === "none") {
+            content.style.display = "flex";
+        } else {
+            content.style.display = "none";
+        }
     }
-  }
 
-  // Category Dropdowns
-  document
-    .querySelector(".want-to-try-dropdown")
-    .addEventListener("click", toggleWant);
-  function toggleWant() {
-    let content = document.querySelector(".want-list");
-    if (content.style.display === "none") {
-      content.style.display = "flex";
-    } else {
-      content.style.display = "none";
+    // Category Dropdowns
+    document
+        .querySelector(".want-to-try-dropdown")
+        .addEventListener("click", toggleWant);
+    function toggleWant() {
+        let content = document.querySelector(".want-list");
+        if (content.style.display === "none") {
+            content.style.display = "flex";
+        } else {
+            content.style.display = "none";
+        }
     }
-  }
 
-  document
-    .querySelector(".made-dropdown")
-    .addEventListener("click", toggleMade);
-  function toggleMade() {
-    let content = document.querySelector(".made-list");
-    if (content.style.display === "none") {
-      content.style.display = "flex";
-    } else {
-      content.style.display = "none";
+    document
+        .querySelector(".made-dropdown")
+        .addEventListener("click", toggleMade);
+    function toggleMade() {
+        let content = document.querySelector(".made-list");
+        if (content.style.display === "none") {
+            content.style.display = "flex";
+        } else {
+            content.style.display = "none";
+        }
     }
-  }
 
-  document
-    .querySelector(".favorites-dropdown")
-    .addEventListener("click", toggleFavorites);
-  function toggleFavorites() {
-    let content = document.querySelector(".favorites-list");
-    if (content.style.display === "none") {
-      content.style.display = "flex";
-    } else {
-      content.style.display = "none";
+    document
+        .querySelector(".favorites-dropdown")
+        .addEventListener("click", toggleFavorites);
+    function toggleFavorites() {
+        let content = document.querySelector(".favorites-list");
+        if (content.style.display === "none") {
+            content.style.display = "flex";
+        } else {
+            content.style.display = "none";
+        }
     }
-  }
 
-  // SEARCH SECTION
-  const searchInput = document.querySelector("input");
-  const resultsContent = document.querySelector(".results-list");
-  const getRecipesBtn = document.querySelector(".getRecipes");
-  let recipeArray = [];
+    // SEARCH SECTION
+    const searchInput = document.querySelector("input");
+    const resultsContent = document.querySelector(".results-list");
+    const getRecipesBtn = document.querySelector(".getRecipes");
+    let recipeArray = [];
 
-  getRecipesBtn.addEventListener("click", () => {
-    resultsContent.innerHTML = " ";
-    fetchRecipeApi();
-  });
+    getRecipesBtn.addEventListener("click", () => {
+        resultsContent.innerHTML = " ";
+        fetchRecipeApi();
+    });
 
-  searchInput.addEventListener("keydown", (e) => {
-    if (e.code === "Enter") {
-      resultsContent.innerHTML = " ";
-      fetchRecipeApi();
+    searchInput.addEventListener("keydown", (e) => {
+        if (e.code === "Enter") {
+            resultsContent.innerHTML = " ";
+            fetchRecipeApi();
+        }
+    });
+
+    function fetchRecipeApi() {
+        let searchInputValue = searchInput.value;
+
+        fetch(
+            `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputValue}`
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                recipeArray = data.meals.map((recipe) => {
+                    return {
+                        meal: recipe.strMeal,
+                        identity: recipe.idMeal,
+                        image: recipe.strMealThumb,
+                        instructions: recipe.strInstructions,
+                        ingredientOne: recipe.strIngredient1,
+                        ingredientTwo: recipe.strIngredient2,
+                        ingredientThree: recipe.strIngredient3,
+                        ingredientFour: recipe.strIngredient4,
+                        ingredientFive: recipe.strIngredient5,
+                        ingredientSix: recipe.strIngredient6,
+                        ingredientSeven: recipe.strIngredient7,
+                        ingredientEight: recipe.strIngredient8,
+                        ingredientNine: recipe.strIngredient9,
+                        ingredientTen: recipe.strIngredient10,
+                        ingredientEleven: recipe.strIngredient11,
+                        ingredientTwelve: recipe.strIngredient12,
+                        ingredientThirteen: recipe.strIngredient13,
+                        ingredientFourteen: recipe.strIngredient14,
+                        ingredientFifteen: recipe.strIngredient15,
+                        ingredientSixteen: recipe.strIngredient16,
+                        ingredientSeventeen: recipe.strIngredient17,
+                        ingredientEighteen: recipe.strIngredient18,
+                        ingredientNineteen: recipe.strIngredient19,
+                        ingredientTwenty: recipe.strIngredient20,
+                        measureOne: recipe.strMeasure1,
+                        measureTwo: recipe.strMeasure2,
+                        measureThree: recipe.strMeasure3,
+                        measureFour: recipe.strMeasure4,
+                        measureFive: recipe.strMeasure5,
+                        measureSix: recipe.strMeasure6,
+                        measureSeven: recipe.strMeasure7,
+                        measureEight: recipe.strMeasure8,
+                        measureNine: recipe.strMeasure9,
+                        measureTen: recipe.strMeasure10,
+                        measureEleven: recipe.strMeasure11,
+                        measureTwelve: recipe.strMeasure12,
+                        measureThirteen: recipe.strMeasure13,
+                        measureFourteen: recipe.strMeasure14,
+                        measureFifteen: recipe.strMeasure15,
+                        measureSixteen: recipe.strMeasure16,
+                        measureSeventeen: recipe.strMeasure17,
+                        measureEighteen: recipe.strMeasure18,
+                        measureNineteen: recipe.strMeasure19,
+                        measureTwenty: recipe.strMeasure20,
+                        tutorial: recipe.strYoutube,
+                        toTry: false,
+                        made: false,
+                        favorite: false,
+                    };
+                });
+                displayRecipes();
+            })
+            .catch((error) => {
+                console.error(error);
+                resultsContent.innerHTML =
+                    "Sorry, could not find a recipe. Try another.";
+            });
     }
-  });
 
-  function fetchRecipeApi() {
-    let searchInputValue = searchInput.value;
-
-    fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputValue}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        recipeArray = data.meals.map((recipe) => {
-          return {
-            meal: recipe.strMeal,
-            identity: recipe.idMeal,
-            image: recipe.strMealThumb,
-            instructions: recipe.strInstructions,
-            ingredientOne: recipe.strIngredient1,
-            ingredientTwo: recipe.strIngredient2,
-            ingredientThree: recipe.strIngredient3,
-            ingredientFour: recipe.strIngredient4,
-            ingredientFive: recipe.strIngredient5,
-            ingredientSix: recipe.strIngredient6,
-            ingredientSeven: recipe.strIngredient7,
-            ingredientEight: recipe.strIngredient8,
-            ingredientNine: recipe.strIngredient9,
-            ingredientTen: recipe.strIngredient10,
-            ingredientEleven: recipe.strIngredient11,
-            ingredientTwelve: recipe.strIngredient12,
-            ingredientThirteen: recipe.strIngredient13,
-            ingredientFourteen: recipe.strIngredient14,
-            ingredientFifteen: recipe.strIngredient15,
-            ingredientSixteen: recipe.strIngredient16,
-            ingredientSeventeen: recipe.strIngredient17,
-            ingredientEighteen: recipe.strIngredient18,
-            ingredientNineteen: recipe.strIngredient19,
-            ingredientTwenty: recipe.strIngredient20,
-            measureOne: recipe.strMeasure1,
-            measureTwo: recipe.strMeasure2,
-            measureThree: recipe.strMeasure3,
-            measureFour: recipe.strMeasure4,
-            measureFive: recipe.strMeasure5,
-            measureSix: recipe.strMeasure6,
-            measureSeven: recipe.strMeasure7,
-            measureEight: recipe.strMeasure8,
-            measureNine: recipe.strMeasure9,
-            measureTen: recipe.strMeasure10,
-            measureEleven: recipe.strMeasure11,
-            measureTwelve: recipe.strMeasure12,
-            measureThirteen: recipe.strMeasure13,
-            measureFourteen: recipe.strMeasure14,
-            measureFifteen: recipe.strMeasure15,
-            measureSixteen: recipe.strMeasure16,
-            measureSeventeen: recipe.strMeasure17,
-            measureEighteen: recipe.strMeasure18,
-            measureNineteen: recipe.strMeasure19,
-            measureTwenty: recipe.strMeasure20,
-            tutorial: recipe.strYoutube,
-            toTry: false,
-            made: false,
-            favorite: false,
-          };
-        });
-        displayRecipes();
-      })
-      .catch((error) => {
-        console.error(error);
-        resultsContent.innerHTML =
-          "Sorry, could not find a recipe. Try another.";
-      });
-  }
-
-  // displaying content in results
-  function displayRecipes() {
-    recipeArray.forEach((recipe) => {
-      let recipeCard = `
+    // displaying content in results
+    function displayRecipes() {
+        recipeArray.forEach((recipe) => {
+            let recipeCard = `
             <div class="card" id="${recipe.identity}">
             <img src="${recipe.image}" class="card-img-top" alt="temporary">
             <div class="card-body">
@@ -191,108 +191,109 @@
         </div>
       `;
 
-      resultsContent.insertAdjacentHTML("beforeend", recipeCard);
-    });
-  }
-
-  const tryResults = document.querySelector(".want-list");
-  const madeResults = document.querySelector(".made-list");
-  const favoriteResults = document.querySelector(".favorites-list");
-
-  // adding click event for want to try or made
-  document.addEventListener("click", (e) => {
-    if (e.target.id === "wantBtn") addRecipeToTry(e);
-    else if (e.target.id === "deleteTryBtn") deleteTryRecipe(e);
-    // else if (e.target.id === "instructionsdropdown") toggle(e);
-  });
-
-  // Want To Try list
-  function addRecipeToTry(e) {
-    let recipeID = e.target.parentElement.parentElement.parentElement.id;
-    let recipeSelected = recipeArray.find((recipe) => {
-      return recipe.identity === recipeID;
-    });
-    console.log("added to try:", recipeSelected);
-
-    if (!recipeSelected.toTry) {
-      recipeSelected.toTry = true;
-    } else if (recipeSelected.toTry) {
-      return (recipeSelected.toTry = false);
-    } else {
-      alert("there was an error.");
+            resultsContent.insertAdjacentHTML("beforeend", recipeCard);
+        });
     }
 
-    displayRecipesToTry();
+    const tryResults = document.querySelector(".want-list");
+    const madeResults = document.querySelector(".made-list");
+    const favoriteResults = document.querySelector(".favorites-list");
 
-    fetch("/recipes/add", {
-      method: "POST",
-      body: JSON.stringify({
-        meal: `${recipeSelected.meal}`,
-        identity: `${recipeSelected.identity}`,
-        image: `${recipeSelected.image}`,
-        instructions: `${recipeSelected.instructions}`,
-        tutorial: `${recipeSelected.tutorial}`,
-        toTry: `${recipeSelected.toTry}`,
-        made: `${recipeSelected.made}`,
-        favorite: `${recipeSelected.favorite}`,
-        ingredientOne: `${recipeSelected.ingredientOne}`,
-        ingredientTwo: `${recipeSelected.ingredientTwo}`,
-        ingredientThree: `${recipeSelected.ingredientThree}`,
-        ingredientFour: `${recipeSelected.ingredientFour}`,
-        ingredientFive: `${recipeSelected.ingredientFive}`,
-        ingredientSix: `${recipeSelected.ingredientSix}`,
-        ingredientSeven: `${recipeSelected.ingredientSeven}`,
-        ingredientEight: `${recipeSelected.ingredientEight}`,
-        ingredientNine: `${recipeSelected.ingredientNine}`,
-        ingredientTen: `${recipeSelected.ingredientTen}`,
-        ingredientEleven: `${recipeSelected.ingredientEleven}`,
-        ingredientTwelve: `${recipeSelected.ingredientTwelve}`,
-        ingredientThirteen: `${recipeSelected.ingredientThirteen}`,
-        ingredientFourteen: `${recipeSelected.ingredientFourteen}`,
-        ingredientFifteen: `${recipeSelected.ingredientFifteen}`,
-        ingredientSixteen: `${recipeSelected.ingredientSixteen}`,
-        ingredientSeventeen: `${recipeSelected.ingredientSeventeen}`,
-        ingredientEighteen: `${recipeSelected.ingredientEighteen}`,
-        ingredientNineteen: `${recipeSelected.ingredientNineteen}`,
-        ingredientTwenty: `${recipeSelected.ingredientTwenty}`,
-        measureOne: `${recipeSelected.measureOne}`,
-        measureTwo: `${recipeSelected.measureTwo}`,
-        measureThree: `${recipeSelected.measureThree}`,
-        measureFour: `${recipeSelected.measureFour}`,
-        measureFive: `${recipeSelected.measureFive}`,
-        measureSix: `${recipeSelected.measureSix}`,
-        measureSeven: `${recipeSelected.measureSeven}`,
-        measureEight: `${recipeSelected.measureEight}`,
-        measureNine: `${recipeSelected.measureNine}`,
-        measureTen: `${recipeSelected.measureTen}`,
-        measureEleven: `${recipeSelected.measureEleven}`,
-        measureTwelve: `${recipeSelected.measureTwelve}`,
-        measureThirteen: `${recipeSelected.measureThirteen}`,
-        measureFourteen: `${recipeSelected.measureFourteen}`,
-        measureFifteen: `${recipeSelected.measureFifteen}`,
-        measureSixteen: `${recipeSelected.measureSixteen}`,
-        measureSeventeen: `${recipeSelected.measureSeventeen}`,
-        measureEightteen: `${recipeSelected.measureEightteen}`,
-        measureNineteen: `${recipeSelected.measureNineteen}`,
-        measureTwenty: `${recipeSelected.measureTwenty}`,
-      }),
+    // adding click event for want to try or made
+    document.addEventListener("click", (e) => {
+        if (e.target.id === "wantBtn") addRecipeToTry(e);
+        else if (e.target.id === "deleteTryBtn") deleteTryRecipe(e);
+        // else if (e.target.id === "instructionsdropdown") toggle(e);
+    });
 
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .catch((error) => {
-        console.error(error);
-      });
-  }
+    // Want To Try list
+    function addRecipeToTry(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeSelected = recipeArray.find((recipe) => {
+            return recipe.identity === recipeID;
+        });
+        console.log("added to try:", recipeSelected);
 
-  function displayRecipesToTry() {
-    // tryResults.innerHTML = "";
-    recipeArray.find((recipe) => {
-      if (recipe.toTry) {
-        let recipeCard = `
+        if (!recipeSelected.toTry) {
+            recipeSelected.toTry = true;
+        } else if (recipeSelected.toTry) {
+            return (recipeSelected.toTry = false);
+        } else {
+            alert("there was an error.");
+        }
+
+        displayRecipesToTry();
+
+        fetch("/recipes/add", {
+            method: "POST",
+            body: JSON.stringify({
+                meal: `${recipeSelected.meal}`,
+                identity: `${recipeSelected.identity}`,
+                image: `${recipeSelected.image}`,
+                instructions: `${recipeSelected.instructions}`,
+                tutorial: `${recipeSelected.tutorial}`,
+                toTry: `${recipeSelected.toTry}`,
+                made: `${recipeSelected.made}`,
+                favorite: `${recipeSelected.favorite}`,
+                ingredientOne: `${recipeSelected.ingredientOne}`,
+                ingredientTwo: `${recipeSelected.ingredientTwo}`,
+                ingredientThree: `${recipeSelected.ingredientThree}`,
+                ingredientFour: `${recipeSelected.ingredientFour}`,
+                ingredientFive: `${recipeSelected.ingredientFive}`,
+                ingredientSix: `${recipeSelected.ingredientSix}`,
+                ingredientSeven: `${recipeSelected.ingredientSeven}`,
+                ingredientEight: `${recipeSelected.ingredientEight}`,
+                ingredientNine: `${recipeSelected.ingredientNine}`,
+                ingredientTen: `${recipeSelected.ingredientTen}`,
+                ingredientEleven: `${recipeSelected.ingredientEleven}`,
+                ingredientTwelve: `${recipeSelected.ingredientTwelve}`,
+                ingredientThirteen: `${recipeSelected.ingredientThirteen}`,
+                ingredientFourteen: `${recipeSelected.ingredientFourteen}`,
+                ingredientFifteen: `${recipeSelected.ingredientFifteen}`,
+                ingredientSixteen: `${recipeSelected.ingredientSixteen}`,
+                ingredientSeventeen: `${recipeSelected.ingredientSeventeen}`,
+                ingredientEighteen: `${recipeSelected.ingredientEighteen}`,
+                ingredientNineteen: `${recipeSelected.ingredientNineteen}`,
+                ingredientTwenty: `${recipeSelected.ingredientTwenty}`,
+                measureOne: `${recipeSelected.measureOne}`,
+                measureTwo: `${recipeSelected.measureTwo}`,
+                measureThree: `${recipeSelected.measureThree}`,
+                measureFour: `${recipeSelected.measureFour}`,
+                measureFive: `${recipeSelected.measureFive}`,
+                measureSix: `${recipeSelected.measureSix}`,
+                measureSeven: `${recipeSelected.measureSeven}`,
+                measureEight: `${recipeSelected.measureEight}`,
+                measureNine: `${recipeSelected.measureNine}`,
+                measureTen: `${recipeSelected.measureTen}`,
+                measureEleven: `${recipeSelected.measureEleven}`,
+                measureTwelve: `${recipeSelected.measureTwelve}`,
+                measureThirteen: `${recipeSelected.measureThirteen}`,
+                measureFourteen: `${recipeSelected.measureFourteen}`,
+                measureFifteen: `${recipeSelected.measureFifteen}`,
+                measureSixteen: `${recipeSelected.measureSixteen}`,
+                measureSeventeen: `${recipeSelected.measureSeventeen}`,
+                measureEightteen: `${recipeSelected.measureEightteen}`,
+                measureNineteen: `${recipeSelected.measureNineteen}`,
+                measureTwenty: `${recipeSelected.measureTwenty}`,
+            }),
+
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                Accept: "application/json",
+            },
+
+        })
+            .then((res) => res.json())
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    function displayRecipesToTry() {
+        tryResults.innerHTML = "";
+        recipeArray.find((recipe) => {
+            if (recipe.toTry) {
+                let recipeCard = `
                 <div class="card" id="${recipe.identity}">
                 <img src="${recipe.image}" class="card-img-top" alt="temporary">
                 <div class="card-body">
@@ -344,22 +345,22 @@
             </div>
             `;
 
-        tryResults.insertAdjacentHTML("beforeend", recipeCard);
-      }
-    });
-  }
+                tryResults.insertAdjacentHTML("beforeend", recipeCard);
+            }
+        });
+    }
 
-  fetch("/recipes/toTry/true", {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      Accept: "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      data.forEach((recipe) => {
-        let recipeCard = `
+    fetch("/recipes/toTry/true", {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Accept: "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((recipe) => {
+                let recipeCard = `
             <div class="card" id="${recipe.identity}">
             <img src="${recipe.image}" class="card-img-top" alt="temporary">
             <div class="card-body">
@@ -411,101 +412,102 @@
         </div>
         `;
 
-        tryResults.insertAdjacentHTML("beforeend", recipeCard);
-      });
-    });
+                tryResults.insertAdjacentHTML("beforeend", recipeCard);
 
-  // adding click event for want to try or made
-  document.addEventListener("click", (e) => {
-    if (e.target.id === "madeBtn") addRecipeToMade(e);
-    else if (e.target.id === "favBtn") addRecipeToFav(e);
-    else if (e.target.id === "deleteMadeBtn") deleteMadeRecipe(e);
-    else if (e.target.id === "removeBtn") removeFavoriteRecipe(e);
-    // else if (e.target.id === "instructionsdropdown") toggle(e);
-  });
-  // Have Made Recipes
-  function addRecipeToMade(e) {
-    let recipeID = e.target.parentElement.parentElement.parentElement.id;
-    console.log("added to Made:", recipeID);
-    let recipeSelected = recipeArray.find((recipe) => {
-      return recipe.identity === recipeID;
+            });
+        });
+
+    // adding click event for want to try or made
+    document.addEventListener("click", (e) => {
+        if (e.target.id === "madeBtn") addRecipeToMade(e);
+        else if (e.target.id === "favBtn") addRecipeToFav(e);
+        else if (e.target.id === "deleteMadeBtn") deleteMadeRecipe(e);
+        else if (e.target.id === "removeBtn") removeFavoriteRecipe(e);
+        // else if (e.target.id === "instructionsdropdown") toggle(e);
     });
-    if (!recipeSelected.made) {
-      recipeSelected.made = true;
-      recipeSelected.toTry = false;
-    } else if (recipeSelected.made) {
-      recipeSelected.made = false;
-    } else {
-      alert("there was an error.");
+    // Have Made Recipes
+    function addRecipeToMade(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        console.log("added to Made:", recipeID);
+        let recipeSelected = recipeArray.find((recipe) => {
+            return recipe.identity === recipeID;
+        });
+        if (!recipeSelected.made) {
+            recipeSelected.made = true;
+            recipeSelected.toTry = false;
+        } else if (recipeSelected.made) {
+            recipeSelected.made = false;
+        } else {
+            alert("there was an error.");
+        }
+
+        displayRecipesMade();
+
+        fetch("/recipes/add", {
+            method: "POST",
+            body: JSON.stringify({
+                meal: `${recipeSelected.meal}`,
+                identity: `${recipeSelected.identity}`,
+                image: `${recipeSelected.image}`,
+                instructions: `${recipeSelected.instructions}`,
+                tutorial: `${recipeSelected.tutorial}`,
+                toTry: `${recipeSelected.toTry}`,
+                made: `${recipeSelected.made}`,
+                favorite: `${recipeSelected.favorite}`,
+                ingredientOne: `${recipeSelected.ingredientOne}`,
+                ingredientTwo: `${recipeSelected.ingredientTwo}`,
+                ingredientThree: `${recipeSelected.ingredientThree}`,
+                ingredientFour: `${recipeSelected.ingredientFour}`,
+                ingredientFive: `${recipeSelected.ingredientFive}`,
+                ingredientSix: `${recipeSelected.ingredientSix}`,
+                ingredientSeven: `${recipeSelected.ingredientSeven}`,
+                ingredientEight: `${recipeSelected.ingredientEight}`,
+                ingredientNine: `${recipeSelected.ingredientNine}`,
+                ingredientTen: `${recipeSelected.ingredientTen}`,
+                ingredientEleven: `${recipeSelected.ingredientEleven}`,
+                ingredientTwelve: `${recipeSelected.ingredientTwelve}`,
+                ingredientThirteen: `${recipeSelected.ingredientThirteen}`,
+                ingredientFourteen: `${recipeSelected.ingredientFourteen}`,
+                ingredientFifteen: `${recipeSelected.ingredientFifteen}`,
+                ingredientSixteen: `${recipeSelected.ingredientSixteen}`,
+                ingredientSeventeen: `${recipeSelected.ingredientSeventeen}`,
+                ingredientEighteen: `${recipeSelected.ingredientEighteen}`,
+                ingredientNineteen: `${recipeSelected.ingredientNineteen}`,
+                ingredientTwenty: `${recipeSelected.ingredientTwenty}`,
+                measureOne: `${recipeSelected.measureOne}`,
+                measureTwo: `${recipeSelected.measureTwo}`,
+                measureThree: `${recipeSelected.measureThree}`,
+                measureFour: `${recipeSelected.measureFour}`,
+                measureFive: `${recipeSelected.measureFive}`,
+                measureSix: `${recipeSelected.measureSix}`,
+                measureSeven: `${recipeSelected.measureSeven}`,
+                measureEight: `${recipeSelected.measureEight}`,
+                measureNine: `${recipeSelected.measureNine}`,
+                measureTen: `${recipeSelected.measureTen}`,
+                measureEleven: `${recipeSelected.measureEleven}`,
+                measureTwelve: `${recipeSelected.measureTwelve}`,
+                measureThirteen: `${recipeSelected.measureThirteen}`,
+                measureFourteen: `${recipeSelected.measureFourteen}`,
+                measureFifteen: `${recipeSelected.measureFifteen}`,
+                measureSixteen: `${recipeSelected.measureSixteen}`,
+                measureSeventeen: `${recipeSelected.measureSeventeen}`,
+                measureEightteen: `${recipeSelected.measureEightteen}`,
+                measureNineteen: `${recipeSelected.measureNineteen}`,
+                measureTwenty: `${recipeSelected.measureTwenty}`,
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                Accept: "application/json",
+            },
+        }).then((res) => res.json());
     }
 
-    displayRecipesMade();
+    function displayRecipesMade() {
+        // tryResults.innerHTML = "";
 
-    fetch("/recipes/add", {
-      method: "POST",
-      body: JSON.stringify({
-        meal: `${recipeSelected.meal}`,
-        identity: `${recipeSelected.identity}`,
-        image: `${recipeSelected.image}`,
-        instructions: `${recipeSelected.instructions}`,
-        tutorial: `${recipeSelected.tutorial}`,
-        toTry: `${recipeSelected.toTry}`,
-        made: `${recipeSelected.made}`,
-        favorite: `${recipeSelected.favorite}`,
-        ingredientOne: `${recipeSelected.ingredientOne}`,
-        ingredientTwo: `${recipeSelected.ingredientTwo}`,
-        ingredientThree: `${recipeSelected.ingredientThree}`,
-        ingredientFour: `${recipeSelected.ingredientFour}`,
-        ingredientFive: `${recipeSelected.ingredientFive}`,
-        ingredientSix: `${recipeSelected.ingredientSix}`,
-        ingredientSeven: `${recipeSelected.ingredientSeven}`,
-        ingredientEight: `${recipeSelected.ingredientEight}`,
-        ingredientNine: `${recipeSelected.ingredientNine}`,
-        ingredientTen: `${recipeSelected.ingredientTen}`,
-        ingredientEleven: `${recipeSelected.ingredientEleven}`,
-        ingredientTwelve: `${recipeSelected.ingredientTwelve}`,
-        ingredientThirteen: `${recipeSelected.ingredientThirteen}`,
-        ingredientFourteen: `${recipeSelected.ingredientFourteen}`,
-        ingredientFifteen: `${recipeSelected.ingredientFifteen}`,
-        ingredientSixteen: `${recipeSelected.ingredientSixteen}`,
-        ingredientSeventeen: `${recipeSelected.ingredientSeventeen}`,
-        ingredientEighteen: `${recipeSelected.ingredientEighteen}`,
-        ingredientNineteen: `${recipeSelected.ingredientNineteen}`,
-        ingredientTwenty: `${recipeSelected.ingredientTwenty}`,
-        measureOne: `${recipeSelected.measureOne}`,
-        measureTwo: `${recipeSelected.measureTwo}`,
-        measureThree: `${recipeSelected.measureThree}`,
-        measureFour: `${recipeSelected.measureFour}`,
-        measureFive: `${recipeSelected.measureFive}`,
-        measureSix: `${recipeSelected.measureSix}`,
-        measureSeven: `${recipeSelected.measureSeven}`,
-        measureEight: `${recipeSelected.measureEight}`,
-        measureNine: `${recipeSelected.measureNine}`,
-        measureTen: `${recipeSelected.measureTen}`,
-        measureEleven: `${recipeSelected.measureEleven}`,
-        measureTwelve: `${recipeSelected.measureTwelve}`,
-        measureThirteen: `${recipeSelected.measureThirteen}`,
-        measureFourteen: `${recipeSelected.measureFourteen}`,
-        measureFifteen: `${recipeSelected.measureFifteen}`,
-        measureSixteen: `${recipeSelected.measureSixteen}`,
-        measureSeventeen: `${recipeSelected.measureSeventeen}`,
-        measureEightteen: `${recipeSelected.measureEightteen}`,
-        measureNineteen: `${recipeSelected.measureNineteen}`,
-        measureTwenty: `${recipeSelected.measureTwenty}`,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        Accept: "application/json",
-      },
-    }).then((res) => res.json());
-  }
-
-  function displayRecipesMade() {
-    // tryResults.innerHTML = "";
-
-    recipeArray.find((recipe) => {
-      if (recipe.made) {
-        let recipeCard = `
+        recipeArray.find((recipe) => {
+            if (recipe.made) {
+                let recipeCard = `
                 <div class="card" id="${recipe.identity}">
                 <img src="${recipe.image}" class="card-img-top" alt="temporary">
                 <div class="card-body">
@@ -557,22 +559,22 @@
             </div>
             `;
 
-        madeResults.insertAdjacentHTML("beforeend", recipeCard);
-      }
-    });
-  }
+                madeResults.insertAdjacentHTML("beforeend", recipeCard);
+            }
+        });
+    }
 
-  fetch("/recipes/made/true", {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      Accept: "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      data.forEach((recipe) => {
-        let recipeCard = `
+    fetch("/recipes/made/true", {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Accept: "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((recipe) => {
+                let recipeCard = `
                 <div class="card" id="${recipe.identity}">
                 <img src="${recipe.image}" class="card-img-top" alt="temporary">
                 <div class="card-body">
@@ -624,29 +626,53 @@
             </div>
             `;
 
-        madeResults.insertAdjacentHTML("beforeend", recipeCard);
-      });
-    });
+                madeResults.insertAdjacentHTML("beforeend", recipeCard);
+            });
+        });
 
-  // Favorite Recipes
-  function addRecipeToFav(e) {
-    let recipeID = e.target.parentElement.parentElement.parentElement.id;
-    console.log("added to favorites:", recipeID);
-    let recipe = recipeArray.find((recipe) => {
-      return Number(recipe.identity) === Number(recipeID);
-    });
-    if (!recipe.favorite) recipe.favorite = true;
-    else recipe.favorite = false;
+    // Favorite Recipes
+    function addRecipeToFav(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        console.log("added to favorites:", recipeID);
+        let recipeSelected = recipeArray.find((recipe) => {
+            return Number(recipe.identity) === Number(recipeID);
+        });
+        if (!recipeSelected.favorite) {
+            recipeSelected.favorite = true;
+            recipeSelected.made = true;
+        }
+        else if (recipeSelected.favorite) recipeSelected.favorite = false;
+        else alert("there was an error");
 
-    displayRecipesFav();
-  }
+        displayRecipesFav();
 
-  function displayRecipesFav() {
-    // tryResults.innerHTML = "";
+        fetch(`/recipes/update/${recipeID}`, {
+            method: "PUT",
+            body: JSON.stringify({
+                favorite: `${recipeSelected.favorite}`,
+                made: `${recipeSelected.made}`,
+                toTry: `${recipeSelected.toTry}`,
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Accept": "application/json",
+            },
+        }
+        )
+            .then((res) => { res.json(
+            console.log("updated---", `${recipeID}`)
 
-    recipeArray.find((recipe) => {
-      if (recipe.made) {
-        let recipeCard = `
+            ); })
+            .catch((error) => { alert(error); })
+
+    }
+
+    function displayRecipesFav() {
+        // tryResults.innerHTML = "";
+
+        recipeArray.find((recipe) => {
+            if (recipe.made) {
+                let recipeCard = `
                 <div class="card" id="${recipe.identity}">
                 <img src="${recipe.image}" class="card-img-top" alt="temporary">
                 <div class="card-body">
@@ -697,22 +723,22 @@
             </div>
             `;
 
-        favoriteResults.insertAdjacentHTML("beforeend", recipeCard);
-      }
-    });
-  }
+                favoriteResults.insertAdjacentHTML("beforeend", recipeCard);
+            }
+        });
+    }
 
-  fetch("/recipes/favorite/true", {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      Accept: "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      data.forEach((recipe) => {
-        let recipeCard = `
+    fetch("/recipes/favorite/true", {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Accept: "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((recipe) => {
+                let recipeCard = `
         <div class="card" id="${recipe.identity}">
         <img src="${recipe.image}" class="card-img-top" alt="temporary">
         <div class="card-body">
@@ -763,88 +789,89 @@
     </div>
     `;
 
-        favoriteResults.insertAdjacentHTML("beforeend", recipeCard);
-      });
-    });
+                favoriteResults.insertAdjacentHTML("beforeend", recipeCard);
+            });
+        });
 
-  // Delete Recipes
-  function deleteTryRecipe(e) {
-    let recipeID = e.target.parentElement.parentElement.parentElement.id;
-    let recipeRemove = e.target.parentElement.parentElement.parentElement;
-    console.log("remove >", recipeRemove);
-    recipeRemove.remove();
+    // Delete Recipes
+    function deleteTryRecipe(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeRemove = e.target.parentElement.parentElement.parentElement;
+        console.log("remove >", recipeRemove);
+        recipeRemove.remove();
 
-    let recipe = recipeArray.find((recipe) => {
-      return Number(recipe.identity) === Number(recipeID);
-    });
-    console.log("recipe >", recipe);
-    if (!recipe.toTry) recipe.toTry = false;
-    else recipe.toTry = false;
+        let recipe = recipeArray.find((recipe) => {
+            return Number(recipe.identity) === Number(recipeID);
+        });
+        console.log("recipe >", recipe);
+        if (!recipe.toTry) recipe.toTry = false;
+        else recipe.toTry = false;
 
-    displayRecipesToTry();
+        displayRecipesToTry();
 
-    fetch(`/recipes/delete/${recipeID}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+        fetch(`/recipes/delete/${recipeID}`, {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                Accept: "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
-  function deleteMadeRecipe(e) {
-    let recipeID = e.target.parentElement.parentElement.parentElement.id;
-    let recipeRemove = e.target.parentElement.parentElement.parentElement;
-    recipeRemove.remove();
+    function deleteMadeRecipe(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeRemove = e.target.parentElement.parentElement.parentElement;
+        recipeRemove.remove();
 
-    let recipe = recipeArray.find((recipe) => {
-      return Number(recipe.identity) === Number(recipeID);
-    });
-    if (!recipe.made) recipe.made = false;
-    else recipe.made = false;
+        let recipe = recipeArray.find((recipe) => {
+            return Number(recipe.identity) === Number(recipeID);
+        });
+        if (!recipe.made) recipe.made = false;
+        else recipe.made = false;
 
-    displayRecipesMade();
+        displayRecipesMade();
 
-    fetch(`/recipes/delete/${recipeID}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+        fetch(`/recipes/delete/${recipeID}`, {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                Accept: "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
-  function removeFavoriteRecipe(e) {
-    let recipeID = e.target.parentElement.parentElement.parentElement.id;
-    let recipeRemove = e.target.parentElement.parentElement.parentElement;
-    recipeRemove.remove();
+    function removeFavoriteRecipe(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeRemove = e.target.parentElement.parentElement.parentElement;
+        console.log("remove fav", recipeRemove)
+        recipeRemove.remove();
 
-    let recipe = recipeArray.find((recipe) => {
-      return Number(recipe.identity) === Number(recipeID);
-    });
-    if (!recipe.favorite) recipe.favorite = false;
-    else recipe.favorite = false;
+        let recipe = recipeArray.find((recipe) => {
+            return Number(recipe.identity) === Number(recipeID);
+        });
+        if (!recipe.favorite) recipe.favorite = false;
+        else recipe.favorite = false;
 
-    displayRecipesFav();
+        displayRecipesFav();
 
-    fetch(`/recipes/delete/${recipeID}`, {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+        fetch(`/recipes/delete/${recipeID}`, {
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                Accept: "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 })(window);
