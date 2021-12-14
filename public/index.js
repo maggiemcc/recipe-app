@@ -499,7 +499,8 @@
                 "Content-type": "application/json; charset=UTF-8",
                 Accept: "application/json",
             },
-        }).then((res) => res.json());
+        })
+        .then((res) => res.json());
     }
 
     function displayRecipesMade() {
@@ -862,16 +863,23 @@
 
         displayRecipesFav();
 
-        fetch(`/recipes/delete/${recipeID}`, {
-            method: "DELETE",
+        fetch(`/recipes/update/${recipeID}`, {
+            method: "PUT",
+            body: JSON.stringify({
+                favorite: `${recipe.favorite}`,
+                made: `${recipe.made}`,
+                toTry: `${recipe.toTry}`,
+            }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
-                Accept: "application/json",
+                "Accept": "application/json",
             },
-        })
-            .then((res) => res.json())
-            .catch((error) => {
-                console.log(error);
-            });
+        }
+        )
+            .then((res) => { res.json(
+            alert(`${recipe.meal} was removed from favorite`),
+            location.reload(),
+            ); })
+            .catch((error) => { alert(error); })
     }
 })(window);
