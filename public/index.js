@@ -145,10 +145,7 @@
             <div class="card-body">
                 <h5 class="card-title">${recipe.meal}</h5>
                 <div>
-                    <div class="instructions-dropdown" id="instructionsdropdown">
-                        <h6>Cooking Instructions</h6>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
+                        <h6 class="instructions-dropdown" >Cooking Instructions</h6>
 
                     <div id="instructions">
                         <p>${recipe.instructions}</p>
@@ -156,10 +153,7 @@
                 </div>
 
                 <div>
-                    <div class="ingredients-dropdown">
-                        <h6>Ingredients</h6>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
+                    <h6 class="ingredients-dropdown">Ingredients</h6>
 
                     <div id="ingredients">
                         <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
@@ -304,10 +298,7 @@
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
-                        <div class="instructions-dropdown" id="instructionsdropdown">
-                            <h6>Cooking Instructions</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                            <h6 class="instructions-dropdown">Cooking Instructions</h6>
     
                         <div id="instructions">
                             <p>${recipe.instructions}</p>
@@ -315,10 +306,7 @@
                     </div>
     
                     <div>
-                        <div class="ingredients-dropdown">
-                            <h6>Ingredients</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                        <h6 class="ingredients-dropdown">Ingredients</h6>
     
                         <div id="ingredients">
                         <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
@@ -377,10 +365,7 @@
             <div class="card-body">
                 <h5 class="card-title">${recipe.meal}</h5>
                 <div>
-                    <div class="instructions-dropdown" id="instructionsdropdown">
-                        <h6>Cooking Instructions</h6>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
+                        <h6 class="instructions-dropdown">Cooking Instructions</h6>
 
                     <div id="instructions">
                         <p>${recipe.instructions}</p>
@@ -388,10 +373,7 @@
                 </div>
 
                 <div>
-                    <div class="ingredients-dropdown">
-                        <h6>Ingredients</h6>
-                        <i class="fas fa-caret-down"></i>
-                    </div>
+                    <h6 class="ingredients-dropdown">Ingredients</h6>
 
                     <div id="ingredients">
                     <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
@@ -529,10 +511,7 @@
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
-                        <div class="instructions-dropdown">
-                            <h6>Cooking Instructions</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                            <h6 class="instructions-dropdown">Cooking Instructions</h6>
     
                         <div id="instructions">
                             <p>${recipe.instructions}</p>
@@ -540,10 +519,7 @@
                     </div>
     
                     <div>
-                        <div class="ingredients-dropdown">
-                            <h6>Ingredients</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                            <h6 class="ingredients-dropdown">Ingredients</h6>
     
                         <div id="ingredients">
                         <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
@@ -602,10 +578,7 @@
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
-                        <div class="instructions-dropdown">
-                            <h6>Cooking Instructions</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                            <h6 class="instructions-dropdown">Cooking Instructions</h6>
     
                         <div id="instructions">
                             <p>${recipe.instructions}</p>
@@ -613,12 +586,9 @@
                     </div>
     
                     <div>
-                        <div class="ingredients-dropdown">
-                            <h6>Ingredients</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                            <h6 class="ingredients-dropdown">Ingredients</h6>
     
-                        <div id="ingredients">
+                    <div id="ingredients">
                         <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
                         <p>${recipe.measureTwo} ${recipe.ingredientTwo},</p>
                         <p>${recipe.measureThree} ${recipe.ingredientThree},</p>
@@ -682,10 +652,7 @@
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
-                        <div class="instructions-dropdown" id="instructionsdropdown">
-                            <h6>Cooking Instructions</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                            <h6 class="instructions-dropdown">Cooking Instructions</h6>
     
                         <div id="instructions">
                             <p>${recipe.instructions}</p>
@@ -693,10 +660,7 @@
                     </div>
     
                     <div>
-                        <div class="ingredients-dropdown">
-                            <h6>Ingredients</h6>
-                            <i class="fas fa-caret-down"></i>
-                        </div>
+                            <h6 class="ingredients-dropdown">Ingredients</h6>
     
                         <div id="ingredients">
                         <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
@@ -754,10 +718,7 @@
         <div class="card-body">
             <h5 class="card-title">${recipe.meal}</h5>
             <div>
-                <div class="instructions-dropdown" id="instructionsdropdown">
-                    <h6>Cooking Instructions</h6>
-                    <i class="fas fa-caret-down"></i>
-                </div>
+                    <h6 class="instructions-dropdown">Cooking Instructions</h6>
 
                 <div id="instructions">
                     <p>${recipe.instructions}</p>
@@ -765,10 +726,7 @@
             </div>
 
             <div>
-                <div class="ingredients-dropdown">
-                    <h6>Ingredients</h6>
-                    <i class="fas fa-caret-down"></i>
-                </div>
+                    <h6 class="ingredients-dropdown">Ingredients</h6>
 
                 <div id="ingredients">
                 <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
@@ -813,15 +771,29 @@
   function deleteTryRecipe(e) {
     let recipeID = e.target.parentElement.parentElement.parentElement.id;
     let recipeRemove = e.target.parentElement.parentElement.parentElement;
+    console.log("remove >", recipeRemove);
     recipeRemove.remove();
 
     let recipe = recipeArray.find((recipe) => {
       return Number(recipe.identity) === Number(recipeID);
     });
+    console.log("recipe >", recipe);
     if (!recipe.toTry) recipe.toTry = false;
     else recipe.toTry = false;
 
     displayRecipesToTry();
+
+    fetch(`/recipes/delete/${recipeID}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   function deleteMadeRecipe(e) {
@@ -830,12 +802,24 @@
     recipeRemove.remove();
 
     let recipe = recipeArray.find((recipe) => {
-      return Number(recipe.id) === Number(recipeID);
+      return Number(recipe.identity) === Number(recipeID);
     });
     if (!recipe.made) recipe.made = false;
     else recipe.made = false;
 
     displayRecipesMade();
+
+    fetch(`/recipes/delete/${recipeID}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   function removeFavoriteRecipe(e) {
@@ -849,41 +833,18 @@
     if (!recipe.favorite) recipe.favorite = false;
     else recipe.favorite = false;
 
-    // displayRecipesFav();
+    displayRecipesFav();
+
+    fetch(`/recipes/delete/${recipeID}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .catch((error) => {
+        console.log(error);
+      });
   }
-
-  // function toggle(e) {
-  //     let recipeID = e.target.parentElement.parentElement.parentElement.id;
-  //     let recipe = recipeArray.find((recipe) => {
-  //         return Number(recipe.id) === Number(recipeID);
-  //     });
-  //     if(recipe){
-  //         let content = document.querySelector("#instructions");
-  //         if (content.style.display === "none") {
-  //             content.style.display = "block";
-  //         } else {
-  //             content.style.display = "none";
-  //         }
-  //     }
-  // }
 })(window);
-
-// document.querySelector(".instructions-dropdown").addEventListener("click", toggleInstructions)
-// function toggleInstructions() {
-//     let content = document.querySelector("#instructions");
-//     if (content.style.display === "none") {
-//         content.style.display = "flex";
-//     } else {
-//         content.style.display = "none";
-//     }
-// }
-
-// document.querySelector(".ingredients-dropdown").addEventListener("click", toggleIngredients)
-// function toggleIngredients() {
-//     let content = document.querySelector("#ingredients");
-//     if (content.style.display === "none") {
-//         content.style.display = "flex";
-//     } else {
-//         content.style.display = "none";
-//     }
-// }

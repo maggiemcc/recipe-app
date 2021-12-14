@@ -20,8 +20,10 @@ router.get("/", async (req, res) => {
 });
 
 // Get - Recipe ID
-router.get("/:recipeId", async (req, res) => {
-    await Recipe.findOne({})
+router.get("/:identity", async (req, res) => {
+    await Recipe.findOne({
+        identity: req.params.identity
+    })
         .then((result) => {
             res.json(result);
         })
@@ -124,8 +126,10 @@ router.post("/add", async (req, res) => {
 });
 
 // Put - Edit Recipe Based On ID
-router.put("/:recipeId", async (req, res) => {
-    await Recipe.findOneAndUpdate({})
+router.put("/:identity", async (req, res) => {
+    await Recipe.findOneAndUpdate({
+
+    })
         .then(() => {
             Recipe.findOne({})
                 .then((result) => res.send(result))
@@ -134,8 +138,10 @@ router.put("/:recipeId", async (req, res) => {
 });
 
 // Delete - Delete/Remove Recipe From Category
-router.delete("/:recipeId", async (req, res) => {
-    await Recipe.findOneAndDelete({})
+router.delete("/delete/:identity", async (req, res) => {
+    await Recipe.findOneAndDelete({
+        identity: req.params.identity
+    })
         .then((result) => {
             res.json(result);
         })
