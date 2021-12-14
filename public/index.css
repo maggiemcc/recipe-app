@@ -18,7 +18,7 @@ main {
 /* SEARCH SECTION */
 .search-section {
   text-align: center;
-  min-height: 100px;
+  min-height: 160px;
 }
 
 .search-section input {
@@ -66,6 +66,8 @@ main {
 .card img {
   width: auto;
   height: auto;
+  max-height: 200px;
+  object-fit: cover;
 }
 .instructions-dropdown, .ingredients-dropdown, .youtube-video {
     text-align: left;
@@ -151,9 +153,11 @@ hr {
 
 .want-list, .made-list, .favorites-list {
     display: none;
+    flex-wrap: wrap;
     margin: auto;
     margin-bottom: 20px;
     max-width: 850px;
+    min-height: 100px;
 }
 
 footer {

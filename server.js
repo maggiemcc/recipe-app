@@ -1,16 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const recipeRoutes = require("./routes/recipes");
-const { mongoURI } = require("./config");
-const app = express();
-
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use('/recipes', recipeRoutes);
-
-app.use(express.static("public"));
 
 const mongoose = require("mongoose");
+const { mongoURI } = require("./config");
 const uri = `${mongoURI}`;
 let port = process.env.PORT || 8000;
 
@@ -27,6 +20,10 @@ mongoose
     })
     .catch(console.error);
 
-app.get('/', (req, res) => {
-    res.json({ message: 'recipe app node js api' });
-})
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use('/recipes', recipeRoutes);
+
+app.use(express.static("public"));

@@ -1,69 +1,41 @@
 (function (window) {
     // Food Card Dropdowns
-    document
-        .querySelector(".results-dropdown")
-        .addEventListener("click", toggleSearchResults);
+    document.querySelector(".results-dropdown").addEventListener("click", toggleSearchResults);
     function toggleSearchResults() {
         let content = document.querySelector(".results-list");
         if (content.style.display === "none") {
-            content.style.display = "block";
+            content.style.display = "flex";
         } else {
             content.style.display = "none";
         }
     }
 
-    // document.querySelector(".instructions-dropdown").addEventListener("click", toggleInstructions)
-    // function toggleInstructions() {
-    //     let content = document.querySelector("#instructions");
-    //     if (content.style.display === "none") {
-    //         content.style.display = "block";
-    //     } else {
-    //         content.style.display = "none";
-    //     }
-    // }
-
-    // document.querySelector(".ingredients-dropdown").addEventListener("click", toggleIngredients)
-    // function toggleIngredients() {
-    //     let content = document.querySelector("#ingredients");
-    //     if (content.style.display === "none") {
-    //         content.style.display = "block";
-    //     } else {
-    //         content.style.display = "none";
-    //     }
-    // }
-
     // Category Dropdowns
-    document
-        .querySelector(".want-to-try-dropdown")
-        .addEventListener("click", toggleWant);
+    document.querySelector(".want-to-try-dropdown").addEventListener("click", toggleWant);
     function toggleWant() {
         let content = document.querySelector(".want-list");
         if (content.style.display === "none") {
-            content.style.display = "block";
+            content.style.display = "flex";
         } else {
             content.style.display = "none";
         }
     }
 
-    document
-        .querySelector(".made-dropdown")
-        .addEventListener("click", toggleMade);
+    document.querySelector(".made-dropdown").addEventListener("click", toggleMade);
     function toggleMade() {
         let content = document.querySelector(".made-list");
         if (content.style.display === "none") {
-            content.style.display = "block";
+            content.style.display = "flex";
         } else {
             content.style.display = "none";
         }
     }
 
-    document
-        .querySelector(".favorites-dropdown")
-        .addEventListener("click", toggleFavorites);
+    document.querySelector(".favorites-dropdown").addEventListener("click", toggleFavorites);
     function toggleFavorites() {
         let content = document.querySelector(".favorites-list");
         if (content.style.display === "none") {
-            content.style.display = "block";
+            content.style.display = "flex";
         } else {
             content.style.display = "none";
         }
@@ -99,67 +71,60 @@
                 recipeArray = data.meals.map((recipe) => {
                     return {
                         meal: recipe.strMeal,
-                        id: recipe.idMeal,
+                        identity: recipe.idMeal,
                         image: recipe.strMealThumb,
                         instructions: recipe.strInstructions,
-                        ingredients: {
-                            one: recipe.strIngredient1,
-                            two: recipe.strIngredient2,
-                            three: recipe.strIngredient3,
-                            four: recipe.strIngredient4,
-                            five: recipe.strIngredient5,
-                            six: recipe.strIngredient6,
-                            seven: recipe.strIngredient7,
-                            eight: recipe.strIngredient8,
-                            nine: recipe.strIngredient9,
-                            ten: recipe.strIngredient10,
-                            eleven: recipe.strIngredient11,
-                            twelve: recipe.strIngredient12,
-                            thirteen: recipe.strIngredient13,
-                            fourteen: recipe.strIngredient14,
-                            fifteen: recipe.strIngredient15,
-                            sixteen: recipe.strIngredient16,
-                            seventeen: recipe.strIngredient17,
-                            eighteen: recipe.strIngredient18,
-                            nineteen: recipe.strIngredient19,
-                            twenty: recipe.strIngredient20,
-                        },
-                        measurements: {
-                            one: recipe.strMeasure1,
-                            two: recipe.strMeasure2,
-                            three: recipe.strMeasure3,
-                            four: recipe.strMeasure4,
-                            five: recipe.strMeasure5,
-                            six: recipe.strMeasure6,
-                            seven: recipe.strMeasure7,
-                            eight: recipe.strMeasure8,
-                            nine: recipe.strMeasure9,
-                            ten: recipe.strMeasure10,
-                            eleven: recipe.strMeasure11,
-                            twelve: recipe.strMeasure12,
-                            thirteen: recipe.strMeasure13,
-                            fourteen: recipe.strMeasure14,
-                            fifteen: recipe.strMeasure15,
-                            sixteen: recipe.strMeasure16,
-                            seventeen: recipe.strMeasure17,
-                            eighteen: recipe.strMeasure18,
-                            nineteen: recipe.strMeasure19,
-                            twenty: recipe.strMeasure20,
-                        },
+                        ingredientOne: recipe.strIngredient1,
+                        ingredientTwo: recipe.strIngredient2,
+                        ingredientThree: recipe.strIngredient3,
+                        ingredientFour: recipe.strIngredient4,
+                        ingredientFive: recipe.strIngredient5,
+                        ingredientSix: recipe.strIngredient6,
+                        ingredientSeven: recipe.strIngredient7,
+                        ingredientEight: recipe.strIngredient8,
+                        ingredientNine: recipe.strIngredient9,
+                        ingredientTen: recipe.strIngredient10,
+                        ingredientEleven: recipe.strIngredient11,
+                        ingredientTwelve: recipe.strIngredient12,
+                        ingredientThirteen: recipe.strIngredient13,
+                        ingredientFourteen: recipe.strIngredient14,
+                        ingredientFifteen: recipe.strIngredient15,
+                        ingredientSixteen: recipe.strIngredient16,
+                        ingredientSeventeen: recipe.strIngredient17,
+                        ingredientEighteen: recipe.strIngredient18,
+                        ingredientNineteen: recipe.strIngredient19,
+                        ingredientTwenty: recipe.strIngredient20,
+                        measureOne: recipe.strMeasure1,
+                        measureTwo: recipe.strMeasure2,
+                        measureThree: recipe.strMeasure3,
+                        measureFour: recipe.strMeasure4,
+                        measureFive: recipe.strMeasure5,
+                        measureSix: recipe.strMeasure6,
+                        measureSeven: recipe.strMeasure7,
+                        measureEight: recipe.strMeasure8,
+                        measureNine: recipe.strMeasure9,
+                        measureTen: recipe.strMeasure10,
+                        measureEleven: recipe.strMeasure11,
+                        measureTwelve: recipe.strMeasure12,
+                        measureThirteen: recipe.strMeasure13,
+                        measureFourteen: recipe.strMeasure14,
+                        measureFifteen: recipe.strMeasure15,
+                        measureSixteen: recipe.strMeasure16,
+                        measureSeventeen: recipe.strMeasure17,
+                        measureEighteen: recipe.strMeasure18,
+                        measureNineteen: recipe.strMeasure19,
+                        measureTwenty: recipe.strMeasure20,
                         tutorial: recipe.strYoutube,
                         toTry: false,
                         made: false,
                         favorite: false,
-                    };
-                });
-                displayRecipes();
-
-                console.log("array ->", recipeArray);
+                    }
+                })
+                displayRecipes()
             })
             .catch((error) => {
                 console.error(error);
                 resultsContent.innerHTML = "Sorry, could not find a recipe. Try another.";
-
             });
     }
 
@@ -167,12 +132,12 @@
     function displayRecipes() {
         recipeArray.forEach((recipe) => {
             let recipeCard = `
-            <div class="card" id="${recipe.id}">
+            <div class="card" id="${recipe.identity}">
             <img src="${recipe.image}" class="card-img-top" alt="temporary">
             <div class="card-body">
                 <h5 class="card-title">${recipe.meal}</h5>
                 <div>
-                    <div class="instructions-dropdown">
+                    <div class="instructions-dropdown" id="instructionsdropdown">
                         <h6>Cooking Instructions</h6>
                         <i class="fas fa-caret-down"></i>
                     </div>
@@ -189,26 +154,26 @@
                     </div>
 
                     <div id="ingredients">
-                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
-                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
-                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
-                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
-                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
-                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
-                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
-                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
-                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
-                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
-                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
-                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
-                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
-                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
-                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
-                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
-                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
-                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
-                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
-                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
+                        <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
+                        <p>${recipe.measureTwo} ${recipe.ingredientTwo},</p>
+                        <p>${recipe.measureThree} ${recipe.ingredientThree},</p>
+                        <p>${recipe.measureFour} ${recipe.ingredientFour},</p>
+                        <p>${recipe.measureFive} ${recipe.ingredientFive},</p>
+                        <p>${recipe.measureSix} ${recipe.ingredientSix},</p>
+                        <p>${recipe.measureSeven} ${recipe.ingredientSeven},</p>
+                        <p>${recipe.measureEight} ${recipe.ingredientEight},</p>
+                        <p>${recipe.measureNine} ${recipe.ingredientNine},</p>
+                        <p>${recipe.measureTen} ${recipe.ingredientTen},</p>
+                        <p>${recipe.measureEleven} ${recipe.ingredientEleven},</p>
+                        <p>${recipe.measureTwelve} ${recipe.ingredientTwelve},</p>
+                        <p>${recipe.measureThirteen} ${recipe.ingredientThirteen},</p>
+                        <p>${recipe.measureFourteen} ${recipe.ingredientFourteen},</p>
+                        <p>${recipe.measureFifteen} ${recipe.ingredientFifteen},</p>
+                        <p>${recipe.measureSixteen} ${recipe.ingredientSixteen},</p>
+                        <p>${recipe.measureSeventeen} ${recipe.ingredientSeventeen},</p>
+                        <p>${recipe.measureEighteen} ${recipe.ingredientEighteen},</p>
+                        <p>${recipe.measureNineteen} ${recipe.ingredientNineteen},</p>
+                        <p>${recipe.measureTwenty} ${recipe.ingredientTwenty},</p>
                     </div>
                 </div>
 
@@ -235,22 +200,83 @@
     // adding click event for want to try or made
     document.addEventListener("click", (e) => {
         if (e.target.id === "wantBtn") addRecipeToTry(e);
-        else if (e.target.id === "madeBtn") addRecipeToMade(e);
-        else if (e.target.id === "favBtn") addRecipeToFav(e);
         else if (e.target.id === "deleteTryBtn") deleteTryRecipe(e);
-        else if (e.target.id === "deleteMadeBtn") deleteMadeRecipe(e);
-        else if (e.target.id === "removeBtn") removeFavoriteRecipe(e);
+        // else if (e.target.id === "instructionsdropdown") toggle(e);
     });
 
     // Want To Try list
     function addRecipeToTry(e) {
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
         console.log("added to try:", recipeID);
-        let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
-        if (!recipe.toTry) recipe.toTry = true;
-        else recipe.toTry = false;
+        let recipeSelected = recipeArray.find((recipe) => { return recipe.identity === recipeID })
+        console.log("recipeSelected ->", recipeSelected)
+
+        if (!recipeSelected.toTry) {recipeSelected.toTry = true}
+        else if (recipeSelected.toTry) {return recipeSelected.toTry = false}
+        else {console.log("there was an error.")}
 
         displayRecipesToTry();
+
+        fetch("/recipes/add", {
+            method: "POST",
+            body: JSON.stringify({
+                meal: `${recipeSelected.meal}`,
+                identity: `${recipeSelected.identity}`,
+                image: `${recipeSelected.image}`,
+                instructions: `${recipeSelected.instructions}`,
+                tutorial: `${recipeSelected.tutorial}`,
+                toTry: `${recipeSelected.toTry}`,
+                made: `${recipeSelected.made}`,
+                favorite: `${recipeSelected.favorite}`,
+                ingredientOne: `${recipeSelected.ingredientOne}`,
+                ingredientTwo: `${recipeSelected.ingredientTwo}`,
+                ingredientThree: `${recipeSelected.ingredientThree}`,
+                ingredientFour: `${recipeSelected.ingredientFour}`,
+                ingredientFive: `${recipeSelected.ingredientFive}`,
+                ingredientSix: `${recipeSelected.ingredientSix}`,
+                ingredientSeven: `${recipeSelected.ingredientSeven}`,
+                ingredientEight: `${recipeSelected.ingredientEight}`,
+                ingredientNine: `${recipeSelected.ingredientNine}`,
+                ingredientTen: `${recipeSelected.ingredientTen}`,
+                ingredientEleven: `${recipeSelected.ingredientEleven}`,
+                ingredientTwelve: `${recipeSelected.ingredientTwelve}`,
+                ingredientThirteen: `${recipeSelected.ingredientThirteen}`,
+                ingredientFourteen: `${recipeSelected.ingredientFourteen}`,
+                ingredientFifteen: `${recipeSelected.ingredientFifteen}`,
+                ingredientSixteen: `${recipeSelected.ingredientSixteen}`,
+                ingredientSeventeen: `${recipeSelected.ingredientSeventeen}`,
+                ingredientEighteen: `${recipeSelected.ingredientEighteen}`,
+                ingredientNineteen: `${recipeSelected.ingredientNineteen}`,
+                ingredientTwenty: `${recipeSelected.ingredientTwenty}`,
+                measureOne: `${recipeSelected.measureOne}`,
+                measureTwo: `${recipeSelected.measureTwo}`,
+                measureThree: `${recipeSelected.measureThree}`,
+                measureFour: `${recipeSelected.measureFour}`,
+                measureFive: `${recipeSelected.measureFive}`,
+                measureSix: `${recipeSelected.measureSix}`,
+                measureSeven: `${recipeSelected.measureSeven}`,
+                measureEight: `${recipeSelected.measureEight}`,
+                measureNine: `${recipeSelected.measureNine}`,
+                measureTen: `${recipeSelected.measureTen}`,
+                measureEleven: `${recipeSelected.measureEleven}`,
+                measureTwelve: `${recipeSelected.measureTwelve}`,
+                measureThirteen: `${recipeSelected.measureThirteen}`,
+                measureFourteen: `${recipeSelected.measureFourteen}`,
+                measureFifteen: `${recipeSelected.measureFifteen}`,
+                measureSixteen: `${recipeSelected.measureSixteen}`,
+                measureSeventeen: `${recipeSelected.measureSeventeen}`,
+                measureEightteen: `${recipeSelected.measureEightteen}`,
+                measureNineteen: `${recipeSelected.measureNineteen}`,
+                measureTwenty: `${recipeSelected.measureTwenty}`,
+            }),
+
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Accept": "application/json",
+            },
+        })
+            .then((res) => res.json())
+            .catch((error) => {console.error(error);});
     }
 
 
@@ -260,12 +286,12 @@
         recipeArray.find((recipe) => {
             if (recipe.toTry) {
                 let recipeCard = `
-                <div class="card" id="${recipe.id}">
+                <div class="card" id="${recipe.identity}">
                 <img src="${recipe.image}" class="card-img-top" alt="temporary">
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
-                        <div class="instructions-dropdown">
+                        <div class="instructions-dropdown" id="instructionsdropdown">
                             <h6>Cooking Instructions</h6>
                             <i class="fas fa-caret-down"></i>
                         </div>
@@ -282,26 +308,26 @@
                         </div>
     
                         <div id="ingredients">
-                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
-                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
-                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
-                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
-                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
-                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
-                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
-                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
-                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
-                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
-                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
-                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
-                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
-                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
-                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
-                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
-                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
-                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
-                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
-                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
+                        <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
+                        <p>${recipe.measureTwo} ${recipe.ingredientTwo},</p>
+                        <p>${recipe.measureThree} ${recipe.ingredientThree},</p>
+                        <p>${recipe.measureFour} ${recipe.ingredientFour},</p>
+                        <p>${recipe.measureFive} ${recipe.ingredientFive},</p>
+                        <p>${recipe.measureSix} ${recipe.ingredientSix},</p>
+                        <p>${recipe.measureSeven} ${recipe.ingredientSeven},</p>
+                        <p>${recipe.measureEight} ${recipe.ingredientEight},</p>
+                        <p>${recipe.measureNine} ${recipe.ingredientNine},</p>
+                        <p>${recipe.measureTen} ${recipe.ingredientTen},</p>
+                        <p>${recipe.measureEleven} ${recipe.ingredientEleven},</p>
+                        <p>${recipe.measureTwelve} ${recipe.ingredientTwelve},</p>
+                        <p>${recipe.measureThirteen} ${recipe.ingredientThirteen},</p>
+                        <p>${recipe.measureFourteen} ${recipe.ingredientFourteen},</p>
+                        <p>${recipe.measureFifteen} ${recipe.ingredientFifteen},</p>
+                        <p>${recipe.measureSixteen} ${recipe.ingredientSixteen},</p>
+                        <p>${recipe.measureSeventeen} ${recipe.ingredientSeventeen},</p>
+                        <p>${recipe.measureEighteen} ${recipe.ingredientEighteen},</p>
+                        <p>${recipe.measureNineteen} ${recipe.ingredientNineteen},</p>
+                        <p>${recipe.measureTwenty} ${recipe.ingredientTwenty},</p>
                     </div>
                 </div>
     
@@ -322,18 +348,86 @@
         });
     }
 
+
+        // adding click event for want to try or made
+        document.addEventListener("click", (e) => {
+            if (e.target.id === "madeBtn") addRecipeToMade(e);
+            else if (e.target.id === "favBtn") addRecipeToFav(e);
+            else if (e.target.id === "deleteMadeBtn") deleteMadeRecipe(e);
+            else if (e.target.id === "removeBtn") removeFavoriteRecipe(e);
+            // else if (e.target.id === "instructionsdropdown") toggle(e);
+        });
     // Have Made Recipes
     function addRecipeToMade(e) {
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
         console.log("added to Made:", recipeID);
-        let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
-        if (!recipe.made) {
-            recipe.made = true;
-            recipe.toTry = false;
+        let recipeSelected = recipeArray.find((recipe) => { return recipe.identity === recipeID; });
+        if (!recipeSelected.made) {
+            recipeSelected.made = true;
+            recipeSelected.toTry = false;
         }
-        else recipe.made = false;
+        else recipeSelected.made = false;
 
         displayRecipesMade();
+
+        fetch("/recipes/add", {
+            method: "POST",
+            body: JSON.stringify({
+                meal: `${recipeSelected.meal}`,
+                identity: `${recipeSelected.identity}`,
+                image: `${recipeSelected.image}`,
+                instructions: `${recipeSelected.instructions}`,
+                tutorial: `${recipeSelected.tutorial}`,
+                toTry: `${recipeSelected.toTry}`,
+                made: `${recipeSelected.made}`,
+                favorite: `${recipeSelected.favorite}`,
+                ingredientOne: `${recipeSelected.ingredientOne}`,
+                ingredientTwo: `${recipeSelected.ingredientTwo}`,
+                ingredientThree: `${recipeSelected.ingredientThree}`,
+                ingredientFour: `${recipeSelected.ingredientFour}`,
+                ingredientFive: `${recipeSelected.ingredientFive}`,
+                ingredientSix: `${recipeSelected.ingredientSix}`,
+                ingredientSeven: `${recipeSelected.ingredientSeven}`,
+                ingredientEight: `${recipeSelected.ingredientEight}`,
+                ingredientNine: `${recipeSelected.ingredientNine}`,
+                ingredientTen: `${recipeSelected.ingredientTen}`,
+                ingredientEleven: `${recipeSelected.ingredientEleven}`,
+                ingredientTwelve: `${recipeSelected.ingredientTwelve}`,
+                ingredientThirteen: `${recipeSelected.ingredientThirteen}`,
+                ingredientFourteen: `${recipeSelected.ingredientFourteen}`,
+                ingredientFifteen: `${recipeSelected.ingredientFifteen}`,
+                ingredientSixteen: `${recipeSelected.ingredientSixteen}`,
+                ingredientSeventeen: `${recipeSelected.ingredientSeventeen}`,
+                ingredientEighteen: `${recipeSelected.ingredientEighteen}`,
+                ingredientNineteen: `${recipeSelected.ingredientNineteen}`,
+                ingredientTwenty: `${recipeSelected.ingredientTwenty}`,
+                measureOne: `${recipeSelected.measureOne}`,
+                measureTwo: `${recipeSelected.measureTwo}`,
+                measureThree: `${recipeSelected.measureThree}`,
+                measureFour: `${recipeSelected.measureFour}`,
+                measureFive: `${recipeSelected.measureFive}`,
+                measureSix: `${recipeSelected.measureSix}`,
+                measureSeven: `${recipeSelected.measureSeven}`,
+                measureEight: `${recipeSelected.measureEight}`,
+                measureNine: `${recipeSelected.measureNine}`,
+                measureTen: `${recipeSelected.measureTen}`,
+                measureEleven: `${recipeSelected.measureEleven}`,
+                measureTwelve: `${recipeSelected.measureTwelve}`,
+                measureThirteen: `${recipeSelected.measureThirteen}`,
+                measureFourteen: `${recipeSelected.measureFourteen}`,
+                measureFifteen: `${recipeSelected.measureFifteen}`,
+                measureSixteen: `${recipeSelected.measureSixteen}`,
+                measureSeventeen: `${recipeSelected.measureSeventeen}`,
+                measureEightteen: `${recipeSelected.measureEightteen}`,
+                measureNineteen: `${recipeSelected.measureNineteen}`,
+                measureTwenty: `${recipeSelected.measureTwenty}`,
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Accept": "application/json",
+            },
+        })
+            .then((res) => res.json())
     }
 
     function displayRecipesMade() {
@@ -342,7 +436,7 @@
         recipeArray.find((recipe) => {
             if (recipe.made) {
                 let recipeCard = `
-                <div class="card" id="${recipe.id}">
+                <div class="card" id="${recipe.identity}">
                 <img src="${recipe.image}" class="card-img-top" alt="temporary">
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
@@ -364,26 +458,26 @@
                         </div>
     
                         <div id="ingredients">
-                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
-                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
-                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
-                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
-                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
-                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
-                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
-                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
-                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
-                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
-                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
-                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
-                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
-                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
-                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
-                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
-                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
-                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
-                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
-                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
+                        <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
+                        <p>${recipe.measureTwo} ${recipe.ingredientTwo},</p>
+                        <p>${recipe.measureThree} ${recipe.ingredientThree},</p>
+                        <p>${recipe.measureFour} ${recipe.ingredientFour},</p>
+                        <p>${recipe.measureFive} ${recipe.ingredientFive},</p>
+                        <p>${recipe.measureSix} ${recipe.ingredientSix},</p>
+                        <p>${recipe.measureSeven} ${recipe.ingredientSeven},</p>
+                        <p>${recipe.measureEight} ${recipe.ingredientEight},</p>
+                        <p>${recipe.measureNine} ${recipe.ingredientNine},</p>
+                        <p>${recipe.measureTen} ${recipe.ingredientTen},</p>
+                        <p>${recipe.measureEleven} ${recipe.ingredientEleven},</p>
+                        <p>${recipe.measureTwelve} ${recipe.ingredientTwelve},</p>
+                        <p>${recipe.measureThirteen} ${recipe.ingredientThirteen},</p>
+                        <p>${recipe.measureFourteen} ${recipe.ingredientFourteen},</p>
+                        <p>${recipe.measureFifteen} ${recipe.ingredientFifteen},</p>
+                        <p>${recipe.measureSixteen} ${recipe.ingredientSixteen},</p>
+                        <p>${recipe.measureSeventeen} ${recipe.ingredientSeventeen},</p>
+                        <p>${recipe.measureEighteen} ${recipe.ingredientEighteen},</p>
+                        <p>${recipe.measureNineteen} ${recipe.ingredientNineteen},</p>
+                        <p>${recipe.measureTwenty} ${recipe.ingredientTwenty},</p>
                     </div>
                 </div>
     
@@ -409,7 +503,7 @@
     function addRecipeToFav(e) {
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
         console.log("added to favorites:", recipeID);
-        let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+        let recipe = recipeArray.find((recipe) => { return Number(recipe.identity) === Number(recipeID); });
         if (!recipe.favorite) recipe.favorite = true;
         else recipe.favorite = false;
 
@@ -422,12 +516,12 @@
         recipeArray.find((recipe) => {
             if (recipe.made) {
                 let recipeCard = `
-                <div class="card" id="${recipe.id}">
+                <div class="card" id="${recipe.identity}">
                 <img src="${recipe.image}" class="card-img-top" alt="temporary">
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
-                        <div class="instructions-dropdown">
+                        <div class="instructions-dropdown" id="instructionsdropdown">
                             <h6>Cooking Instructions</h6>
                             <i class="fas fa-caret-down"></i>
                         </div>
@@ -444,26 +538,26 @@
                         </div>
     
                         <div id="ingredients">
-                        <p>${recipe.measurements.one} ${recipe.ingredients.one},</p>
-                        <p>${recipe.measurements.two} ${recipe.ingredients.two},</p>
-                        <p>${recipe.measurements.three} ${recipe.ingredients.three},</p>
-                        <p>${recipe.measurements.four} ${recipe.ingredients.four},</p>
-                        <p>${recipe.measurements.five} ${recipe.ingredients.five},</p>
-                        <p>${recipe.measurements.six} ${recipe.ingredients.six},</p>
-                        <p>${recipe.measurements.seven} ${recipe.ingredients.seven},</p>
-                        <p>${recipe.measurements.eight} ${recipe.ingredients.eight},</p>
-                        <p>${recipe.measurements.nine} ${recipe.ingredients.nine},</p>
-                        <p>${recipe.measurements.ten} ${recipe.ingredients.ten},</p>
-                        <p>${recipe.measurements.eleven} ${recipe.ingredients.eleven},</p>
-                        <p>${recipe.measurements.twelve} ${recipe.ingredients.twelve},</p>
-                        <p>${recipe.measurements.thirteen} ${recipe.ingredients.thirteen},</p>
-                        <p>${recipe.measurements.fourteen} ${recipe.ingredients.fourteen},</p>
-                        <p>${recipe.measurements.fifteen} ${recipe.ingredients.fifteen},</p>
-                        <p>${recipe.measurements.sixteen} ${recipe.ingredients.sixteen},</p>
-                        <p>${recipe.measurements.seventeen} ${recipe.ingredients.seventeen},</p>
-                        <p>${recipe.measurements.eighteen} ${recipe.ingredients.eighteen},</p>
-                        <p>${recipe.measurements.nineteen} ${recipe.ingredients.nineteen},</p>
-                        <p>${recipe.measurements.twenty} ${recipe.ingredients.twenty},</p>
+                        <p>${recipe.measureOne} ${recipe.ingredientOne},</p>
+                        <p>${recipe.measureTwo} ${recipe.ingredientTwo},</p>
+                        <p>${recipe.measureThree} ${recipe.ingredientThree},</p>
+                        <p>${recipe.measureFour} ${recipe.ingredientFour},</p>
+                        <p>${recipe.measureFive} ${recipe.ingredientFive},</p>
+                        <p>${recipe.measureSix} ${recipe.ingredientSix},</p>
+                        <p>${recipe.measureSeven} ${recipe.ingredientSeven},</p>
+                        <p>${recipe.measureEight} ${recipe.ingredientEight},</p>
+                        <p>${recipe.measureNine} ${recipe.ingredientNine},</p>
+                        <p>${recipe.measureTen} ${recipe.ingredientTen},</p>
+                        <p>${recipe.measureEleven} ${recipe.ingredientEleven},</p>
+                        <p>${recipe.measureTwelve} ${recipe.ingredientTwelve},</p>
+                        <p>${recipe.measureThirteen} ${recipe.ingredientThirteen},</p>
+                        <p>${recipe.measureFourteen} ${recipe.ingredientFourteen},</p>
+                        <p>${recipe.measureFifteen} ${recipe.ingredientFifteen},</p>
+                        <p>${recipe.measureSixteen} ${recipe.ingredientSixteen},</p>
+                        <p>${recipe.measureSeventeen} ${recipe.ingredientSeventeen},</p>
+                        <p>${recipe.measureEighteen} ${recipe.ingredientEighteen},</p>
+                        <p>${recipe.measureNineteen} ${recipe.ingredientNineteen},</p>
+                        <p>${recipe.measureTwenty} ${recipe.ingredientTwenty},</p>
                     </div>
                 </div>
     
@@ -484,42 +578,80 @@
     }
 
 
-        // Delete Recipes
-        function deleteTryRecipe(e) {
-            let recipeID = e.target.parentElement.parentElement.parentElement.id;
-            let recipeRemove = e.target.parentElement.parentElement.parentElement;
-            recipeRemove.remove();
+    // Delete Recipes
+    function deleteTryRecipe(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeRemove = e.target.parentElement.parentElement.parentElement;
+        recipeRemove.remove();
 
-            let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
-            if (!recipe.toTry) recipe.toTry = false;
-            else recipe.toTry = false;
-    
-            displayRecipesToTry();
-        }
+        let recipe = recipeArray.find((recipe) => { return Number(recipe.identity) === Number(recipeID); });
+        if (!recipe.toTry) recipe.toTry = false;
+        else recipe.toTry = false;
 
-        function deleteMadeRecipe(e) {
-            let recipeID = e.target.parentElement.parentElement.parentElement.id;
-            let recipeRemove = e.target.parentElement.parentElement.parentElement;
-            recipeRemove.remove();
+        displayRecipesToTry();
+    }
 
-            let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
-            if (!recipe.made) recipe.made = false;
-            else recipe.made = false;
-    
-            displayRecipesMade();
-        }
+    function deleteMadeRecipe(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeRemove = e.target.parentElement.parentElement.parentElement;
+        recipeRemove.remove();
+
+        let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
+        if (!recipe.made) recipe.made = false;
+        else recipe.made = false;
+
+        displayRecipesMade();
+    }
 
 
-        function removeFavoriteRecipe(e) {
-            let recipeID = e.target.parentElement.parentElement.parentElement.id;
-            let recipeRemove = e.target.parentElement.parentElement.parentElement;
-            recipeRemove.remove();
+    function removeFavoriteRecipe(e) {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeRemove = e.target.parentElement.parentElement.parentElement;
+        recipeRemove.remove();
 
-            let recipe = recipeArray.find((recipe) => { return Number(recipe.id) === Number(recipeID); });
-            if (!recipe.favorite) recipe.favorite = false;
-            else recipe.favorite = false;
-    
-            // displayRecipesFav();
-        }
+        let recipe = recipeArray.find((recipe) => { return Number(recipe.identity) === Number(recipeID); });
+        if (!recipe.favorite) recipe.favorite = false;
+        else recipe.favorite = false;
+
+        // displayRecipesFav();
+    }
+
+    // function toggle(e) {
+    //     let recipeID = e.target.parentElement.parentElement.parentElement.id;
+    //     let recipe = recipeArray.find((recipe) => { 
+    //         return Number(recipe.id) === Number(recipeID); 
+    //     });
+    //     if(recipe){
+    //         let content = document.querySelector("#instructions");
+    //         if (content.style.display === "none") {
+    //             content.style.display = "block";
+    //         } else {
+    //             content.style.display = "none";
+    //         }
+    //     }
+    // }
 
 })(window);
+
+
+
+
+   // document.querySelector(".instructions-dropdown").addEventListener("click", toggleInstructions)
+    // function toggleInstructions() {
+    //     let content = document.querySelector("#instructions");
+    //     if (content.style.display === "none") {
+    //         content.style.display = "flex";
+    //     } else {
+    //         content.style.display = "none";
+    //     }
+    // }
+
+    // document.querySelector(".ingredients-dropdown").addEventListener("click", toggleIngredients)
+    // function toggleIngredients() {
+    //     let content = document.querySelector("#ingredients");
+    //     if (content.style.display === "none") {
+    //         content.style.display = "flex";
+    //     } else {
+    //         content.style.display = "none";
+    //     }
+    // }
