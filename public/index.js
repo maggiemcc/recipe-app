@@ -202,7 +202,7 @@
     // adding click event for want to try or made
     document.addEventListener("click", (e) => {
         if (e.target.id === "wantBtn") addRecipeToTry(e);
-        else if (e.target.id === "deleteTryBtn") deleteTryRecipe(e);
+        // else if (e.target.id === "deleteTryBtn") deleteTryRecipe(e);
         // else if (e.target.id === "instructionsdropdown") toggle(e);
     });
 
@@ -414,6 +414,37 @@
 
                 tryResults.insertAdjacentHTML("beforeend", recipeCard);
 
+
+                document.addEventListener("click", (e) => {
+                    let recipeID = e.target.parentElement.parentElement.parentElement.id;
+                    let recipeRemove = e.target.parentElement.parentElement.parentElement;
+            
+                    let recipeSelected = data.find((recipe) => Number(recipe.identity) === Number(recipeID));
+            
+                    if (e.target.id === 'deleteTryBtn') {
+                        recipeSelected.toTry = false;
+                        console.log("remove >", recipeSelected);
+                        recipeRemove.remove();
+            
+                        displayRecipesToTry();
+            
+                        fetch(`/recipes/delete/${recipeID}`, {
+                            method: "DELETE",
+                            headers: {
+                                "Content-type": "application/json; charset=UTF-8",
+                                "Accept": "application/json",
+                            },
+                        })
+                            .then((res) => res.json())
+                            .catch((error) => {
+                                console.log(error);
+                            });
+            
+                    }
+            
+                    else recipeSelected.toTry = false;
+                })
+
             });
         });
 
@@ -423,7 +454,6 @@
         else if (e.target.id === "favBtn") addRecipeToFav(e);
         else if (e.target.id === "deleteMadeBtn") deleteMadeRecipe(e);
         else if (e.target.id === "removeBtn") removeFavoriteRecipe(e);
-        // else if (e.target.id === "instructionsdropdown") toggle(e);
     });
     // Have Made Recipes
     function addRecipeToMade(e) {
@@ -500,11 +530,11 @@
                 Accept: "application/json",
             },
         })
-        .then((res) => res.json());
+            .then((res) => res.json());
     }
 
     function displayRecipesMade() {
-        // tryResults.innerHTML = "";
+        tryResults.innerHTML = "";
 
         recipeArray.find((recipe) => {
             if (recipe.made) {
@@ -660,16 +690,18 @@
             },
         }
         )
-            .then((res) => { res.json(
-            console.log("updated---", `${recipeID}`)
+            .then((res) => {
+                res.json(
+                    console.log("updated---", `${recipeID}`)
 
-            ); })
+                );
+            })
             .catch((error) => { alert(error); })
 
     }
 
     function displayRecipesFav() {
-        // tryResults.innerHTML = "";
+        tryResults.innerHTML = "";
 
         recipeArray.find((recipe) => {
             if (recipe.made) {
@@ -795,33 +827,64 @@
         });
 
     // Delete Recipes
-    function deleteTryRecipe(e) {
+    document.addEventListener("click", (e) => {
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
         let recipeRemove = e.target.parentElement.parentElement.parentElement;
-        console.log("remove >", recipeRemove);
-        recipeRemove.remove();
 
-        let recipe = recipeArray.find((recipe) => {
-            return Number(recipe.identity) === Number(recipeID);
-        });
-        console.log("recipe >", recipe);
-        if (!recipe.toTry) recipe.toTry = false;
-        else recipe.toTry = false;
+        let recipeSelected = recipeArray.find((recipe) => Number(recipe.identity) === Number(recipeID));
 
-        displayRecipesToTry();
+        if (e.target.id === 'deleteTryBtn') {
+            recipeSelected.toTry = false;
+            console.log("remove >", recipeSelected);
+            recipeRemove.remove();
 
-        fetch(`/recipes/delete/${recipeID}`, {
-            method: "DELETE",
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                Accept: "application/json",
-            },
-        })
-            .then((res) => res.json())
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+            displayRecipesToTry();
+
+            fetch(`/recipes/delete/${recipeID}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    "Accept": "application/json",
+                },
+            })
+                .then((res) => res.json())
+                .catch((error) => {
+                    console.log(error);
+                });
+
+        }
+
+        else recipeSelected.toTry = false;
+    })
+
+
+    // function deleteTryRecipe(e) {
+    //     let recipeID = e.target.parentElement.parentElement.parentElement.id;
+    //     let recipeRemove = e.target.parentElement.parentElement.parentElement;
+    //     console.log("remove >", recipeRemove);
+    //     recipeRemove.remove();
+
+    //     let recipe = recipeArray.find((recipe) => {
+    //         return Number(recipe.identity) === Number(recipeID);
+    //     });
+    //     console.log("recipe >", recipe);
+    //     if (!recipe.toTry) recipe.toTry = false;
+    //     else recipe.toTry = false;
+
+    //     displayRecipesToTry();
+
+    //     fetch(`/recipes/delete/${recipeID}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-type": "application/json; charset=UTF-8",
+    //             Accept: "application/json",
+    //         },
+    //     })
+    //         .then((res) => res.json())
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // }
 
     function deleteMadeRecipe(e) {
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
@@ -849,6 +912,10 @@
             });
     }
 
+
+    document.addEventListener("Click", (e) => {
+
+    });
     function removeFavoriteRecipe(e) {
         let recipeID = e.target.parentElement.parentElement.parentElement.id;
         let recipeRemove = e.target.parentElement.parentElement.parentElement;
@@ -876,10 +943,12 @@
             },
         }
         )
-            .then((res) => { res.json(
-            alert(`${recipe.meal} was removed from favorite`),
-            location.reload(),
-            ); })
+            .then((res) => {
+                res.json(
+                    alert(`${recipe.meal} was removed from favorite`),
+                    location.reload(),
+                );
+            })
             .catch((error) => { alert(error); })
     }
 })(window);

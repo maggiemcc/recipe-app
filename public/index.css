@@ -45,11 +45,12 @@ main {
   max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   height: 100%;
   margin: 10px;
 }
@@ -139,7 +140,7 @@ h2 {
   padding: 20px 3%;
   margin: auto;
   margin-bottom: 10px;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .want-to-try-dropdown i,
@@ -157,8 +158,9 @@ h2 {
     flex-wrap: wrap;
     margin: auto;
     margin-bottom: 20px;
-    max-width: 850px;
+    max-width: 1000px;
     min-height: 100px;
+  justify-content: center;
 }
 
 footer {
