@@ -1,5 +1,5 @@
 # Recipe Full Stack App
-- This project was created using Vanilla JS on the Frontend, uses MongoDB for the database, and used the [TheMealDB API](https://www.themealdb.com/). It's also being hosted live on [Heroku]().
+- This project was created using Vanilla JS on the Frontend, uses MongoDB for the database, and used the [TheMealDB API](https://www.themealdb.com/). It's also being hosted live on [Heroku](https://whispering-reef-92142.herokuapp.com/).
 
 # User Stories
     See public/index.js file
