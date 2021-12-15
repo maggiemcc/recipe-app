@@ -141,7 +141,7 @@
         recipeArray.forEach((recipe) => {
             let recipeCard = `
             <div class="card" id="${recipe.identity}">
-            <img src="${recipe.image}" class="card-img-top" alt="temporary">
+            <img src="${recipe.image}" class="card-img-top" alt="${recipe.meal}">
             <div class="card-body">
                 <h5 class="card-title">${recipe.meal}</h5>
                 <div>
@@ -294,7 +294,7 @@
             if (recipe.toTry) {
                 let recipeCard = `
                 <div class="card" id="${recipe.identity}">
-                <img src="${recipe.image}" class="card-img-top" alt="temporary">
+                <img src="${recipe.image}" class="card-img-top" alt="${recipe.meal}">
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
@@ -361,7 +361,7 @@
             data.forEach((recipe) => {
                 let recipeCard = `
             <div class="card" id="${recipe.identity}">
-            <img src="${recipe.image}" class="card-img-top" alt="temporary">
+            <img src="${recipe.image}" class="card-img-top" alt="${recipe.meal}">
             <div class="card-body">
                 <h5 class="card-title">${recipe.meal}</h5>
                 <div>
@@ -569,7 +569,7 @@
             if (recipe.made) {
                 let recipeCard = `
                 <div class="card" id="${recipe.identity}">
-                <img src="${recipe.image}" class="card-img-top" alt="temporary">
+                <img src="${recipe.image}" class="card-img-top" alt="${recipe.meal}">
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
@@ -636,7 +636,7 @@
             data.forEach((recipe) => {
                 let recipeCard = `
                 <div class="card" id="${recipe.identity}">
-                <img src="${recipe.image}" class="card-img-top" alt="temporary">
+                <img src="${recipe.image}" class="card-img-top" alt="${recipe.meal}">
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
@@ -795,7 +795,7 @@
             if (recipe.made) {
                 let recipeCard = `
                 <div class="card" id="${recipe.identity}">
-                <img src="${recipe.image}" class="card-img-top" alt="temporary">
+                <img src="${recipe.image}" class="card-img-top" alt="${recipe.meal}">
                 <div class="card-body">
                     <h5 class="card-title">${recipe.meal}</h5>
                     <div>
@@ -861,7 +861,7 @@
             data.forEach((recipe) => {
                 let recipeCard = `
         <div class="card" id="${recipe.identity}">
-        <img src="${recipe.image}" class="card-img-top" alt="temporary">
+        <img src="${recipe.image}" class="card-img-top" alt="${recipe.meal}">
         <div class="card-body">
             <h5 class="card-title">${recipe.meal}</h5>
             <div>
