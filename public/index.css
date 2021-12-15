@@ -45,7 +45,7 @@ main {
   max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .card {
