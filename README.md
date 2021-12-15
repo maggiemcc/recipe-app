@@ -41,3 +41,18 @@
 15. The user wants to find/see an image of a potential recipe to know what
     the food will look like
     - [EX: line 144: an image is available at the top of each recipe card for users to see](https://github.com/maggiemcc/recipe-app/blob/master/public/index.js)
+
+# Database & API
+- This project is using MongoDB for the database and the [TheMealDB API](https://www.themealdb.com/)
+
+# Endpoints
+    See routes/recipes.js file
+- This project using at least one of each endpoint:
+    - Create: [EX: line 69](https://github.com/maggiemcc/recipe-app/blob/master/routes/recipes.js)
+        - ```router.post("/add", async (req, res) => {const newRecipe = await new Recipe({meal: req.body.meal,...})})```
+    - Update: [EX: line 129](https://github.com/maggiemcc/recipe-app/blob/master/routes/recipes.js)
+        - ```router.put("/update/:identity", async (req, res) => {await Recipe.findOneAndUpdate({identity: req.params.identity}, req.body)...});```
+    - Read: [EX: line 58](https://github.com/maggiemcc/recipe-app/blob/master/routes/recipes.js)
+        - ```router.get("/made/:made", async (req, res) => {await Recipe.find({made: req.params.made === 'true'})...});```
+    - Delete: [EX: line 140](https://github.com/maggiemcc/recipe-app/blob/master/routes/recipes.js)
+        - ```router.delete("/delete/:identity", async (req, res) => {await Recipe.findOneAndDelete({identity: req.params.identity})...});```
