@@ -1,4 +1,5 @@
 # recipe-app
+- This project was created using Vanilla JS on the Frontend, uses MongoDB for the database, and used the [TheMealDB API](https://www.themealdb.com/). It's also being hosted live on [Heroku]().
 
 # User Stories
     See public/index.js file
@@ -41,9 +42,6 @@
 15. The user wants to find/see an image of a potential recipe to know what
     the food will look like
     - [EX: line 144: an image is available at the top of each recipe card for users to see](https://github.com/maggiemcc/recipe-app/blob/master/public/index.js)
-
-# Database & API
-- This project is using MongoDB for the database and the [TheMealDB API](https://www.themealdb.com/)
 
 # Endpoints
     See routes/recipes.js file

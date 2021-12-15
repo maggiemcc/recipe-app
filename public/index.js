@@ -520,7 +520,20 @@
                 "Content-type": "application/json; charset=UTF-8",
                 Accept: "application/json",
             },
-        }).then((res) => res.json());
+        })
+        fetch(`/recipes/update/${recipeID}`, {
+            method: "PUT",
+            body: JSON.stringify({
+                favorite: `${recipeSelected.favorite}`,
+                made: `${recipeSelected.made}`,
+                toTry: `${recipeSelected.toTry}`,
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                Accept: "application/json",
+            },
+        })
+        .then((res) => res.json());
     }
 
     function displayRecipesMade() {
