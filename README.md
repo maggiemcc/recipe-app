@@ -45,7 +45,7 @@
 
 # Endpoints
     See routes/recipes.js file
-- This project using at least one of each endpoint:
+- This project uses at least one of each endpoint:
     - Create: [EX: line 69](https://github.com/maggiemcc/recipe-app/blob/master/routes/recipes.js)
         - ```router.post("/add", async (req, res) => {const newRecipe = await new Recipe({meal: req.body.meal,...})})```
     - Update: [EX: line 129](https://github.com/maggiemcc/recipe-app/blob/master/routes/recipes.js)
