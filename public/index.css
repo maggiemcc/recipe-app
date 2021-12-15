@@ -104,7 +104,7 @@ main {
   text-align: left;
 }
 
-#wantBtn, #madeBtn, #favBtn, #deleteTryBtn, #deleteMadeBtn, #removeBtn {
+#wantBtn, #madeBtn, #favBtn, #deleteTryBtn, #deleteMadeBtn, #removeBtn, #updateTry {
     background-color: purple;
     color: white;
     border: none;

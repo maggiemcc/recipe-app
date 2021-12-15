@@ -215,6 +215,7 @@
 
         if (!recipeSelected.toTry) {
             recipeSelected.toTry = true;
+            alert(`${recipeSelected.meal} was added to your list.`)
         } else if (recipeSelected.toTry) {
             return (recipeSelected.toTry = false);
         } else {
@@ -336,7 +337,7 @@
                     </div>
     
                     <div class="card-buttons">
-                        <button id="madeBtn">Have Made</button>
+                        <button id="updateTry">Have Made</button>
                         <button id="deleteTryBtn">Delete</button>
                     </div>
                 </div>
@@ -403,7 +404,7 @@
                 </div>
 
                 <div class="card-buttons">
-                    <button id="madeBtn">Have Made</button>
+                    <button id="updateTry">Have Made</button>
                     <button id="deleteTryBtn">Delete</button>
                 </div>
             </div>
@@ -411,6 +412,43 @@
         `;
 
                 tryResults.insertAdjacentHTML("beforeend", recipeCard);
+
+                document.addEventListener("click", (e) => {
+                    let recipeID = e.target.parentElement.parentElement.parentElement.id;
+                    let recipeRemove = e.target.parentElement.parentElement.parentElement;
+            
+                    let recipeSelected = data.find(
+                        (recipe) => Number(recipe.identity) === Number(recipeID)
+                    );
+            
+                    if (e.target.id === "updateTry") {
+                        recipeSelected.toTry = false;
+                        recipeSelected.made = true;
+                        console.log("remove >", recipeSelected);
+                        recipeRemove.remove();
+            
+                        displayRecipesMade();
+            
+                        fetch(`/recipes/update/${recipeID}`, {
+                            method: "PUT",
+                            body: JSON.stringify({
+                                favorite: `${recipeSelected.favorite}`,
+                                made: `${recipeSelected.made}`,
+                                toTry: `${recipeSelected.toTry}`,
+                            }),
+                            headers: {
+                                "Content-type": "application/json; charset=UTF-8",
+                                Accept: "application/json",
+                            },
+                        })
+                            .then((res) => {
+                                res.json(
+                                    alert(`${recipeSelected.meal} was moved to your recipes made list.`),
+                                    location.reload()
+                                );
+                            })
+                    } else recipeSelected.toTry = false;
+                });
 
                 document.addEventListener("click", (e) => {
                     let recipeID = e.target.parentElement.parentElement.parentElement.id;
@@ -456,6 +494,7 @@
         if (!recipeSelected.made) {
             recipeSelected.made = true;
             recipeSelected.toTry = false;
+            alert(`${recipeSelected.meal} was added to your list.`)
         } else if (recipeSelected.made) {
             recipeSelected.made = false;
         } else {
@@ -521,19 +560,6 @@
                 Accept: "application/json",
             },
         })
-        fetch(`/recipes/update/${recipeID}`, {
-            method: "PUT",
-            body: JSON.stringify({
-                favorite: `${recipeSelected.favorite}`,
-                made: `${recipeSelected.made}`,
-                toTry: `${recipeSelected.toTry}`,
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                Accept: "application/json",
-            },
-        })
-        .then((res) => res.json());
     }
 
     function displayRecipesMade() {
@@ -1011,6 +1037,43 @@
                     res.json(
                         alert(`${recipeSelected.meal} was removed from favorite`),
                         location.reload()
+                    );
+                })
+        } else recipeSelected.toTry = false;
+    });
+
+    document.addEventListener("click", (e) => {
+        let recipeID = e.target.parentElement.parentElement.parentElement.id;
+        let recipeRemove = e.target.parentElement.parentElement.parentElement;
+
+        let recipeSelected = recipeArray.find(
+            (recipe) => Number(recipe.identity) === Number(recipeID)
+        );
+
+        if (e.target.id === "updateTry") {
+            recipeSelected.toTry = false;
+            recipeSelected.made = true;
+            console.log("remove >", recipeSelected);
+            recipeRemove.remove();
+
+            displayRecipesMade();
+
+            fetch(`/recipes/update/${recipeID}`, {
+                method: "PUT",
+                body: JSON.stringify({
+                    favorite: `${recipeSelected.favorite}`,
+                    made: `${recipeSelected.made}`,
+                    toTry: `${recipeSelected.toTry}`,
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    Accept: "application/json",
+                },
+            })
+                .then((res) => {
+                    res.json(
+                        alert(`${recipeSelected.meal} was moved to your recipes made list.`),
+                        // location.reload()
                     );
                 })
         } else recipeSelected.toTry = false;
