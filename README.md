@@ -54,3 +54,6 @@
         - ```router.get("/made/:made", async (req, res) => {await Recipe.find({made: req.params.made === 'true'})...});```
     - Delete: [EX: line 140](https://github.com/maggiemcc/recipe-app/blob/master/routes/recipes.js)
         - ```router.delete("/delete/:identity", async (req, res) => {await Recipe.findOneAndDelete({identity: req.params.identity})...});```
+     
+
+https://tiny-vacherin-623725.netlify.app/
